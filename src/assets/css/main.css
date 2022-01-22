@@ -1,0 +1,326 @@
+.loginContainer {
+  width: 60% !important;
+}
+
+.whiteText {
+  padding: 10px;
+  text-align: left;
+}
+
+.cstmNav {
+  text-align: left;
+}
+
+.SignUp_In_Container {
+  position: relative;
+  overflow-y: auto;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 1px 1px 3px 2px #dedede;
+  border: 1px solid #a4a4a4;
+  border-radius: 5px;
+}
+
+.cstm_lbl {
+  font-size: 20px;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dashed #000;
+}
+
+.separator:not(:empty)::before {
+  margin-right: .25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: .25em;
+}
+
+a {
+  color: #2c3e50;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: none !important;
+}
+
+.headerSearchCstm {
+  margin-top: 10px;
+  margin-left: 30%;
+}
+
+body {
+  overflow: hidden;
+}
+
+.addedProd {
+  padding-right: 10px;
+  padding-left: 10px;
+  user-select: none;
+}
+
+h4 {
+  margin: 0 !important;
+}
+
+.cstmCard {
+  padding: 0;
+}
+
+.cstmRatingStyle {
+  height: "30px";
+  padding: 0;
+  margin-left: -5px;
+  color: #1bc263;
+}
+
+.cstmHR {
+  margin: 5px 0 10px 0 !important;
+  border-top: 1px solid rgba(237, 242, 245, 1) !important;
+}
+
+.cardCstmSolo {
+  border: none;
+}
+
+.bodyContainer {
+  overflow-y: auto;
+}
+
+.suggestedProdCard {
+  width: 100%;
+  padding: 0 !important;
+}
+
+.soloProdCard {
+  padding: 3px 20px !important;
+}
+
+.margin0 {
+  margin: 0 !important;
+}
+
+.padding0 {
+  padding: 0 !important;
+}
+
+.paddingL15 {
+  padding-left: 15px !important;
+}
+
+.marginL5 {
+  margin-left: 5px !important;
+}
+
+.marginB5 {
+  margin-bottom: 5px !important;
+}
+
+.marginR5 {
+  margin-right: 5px !important;
+}
+
+/* new Style according to XD Design */
+
+.tcsTxt {
+  position: absolute;
+  top: 2px;
+  height: 38px;
+  color: #224e7b;
+  font: normal normal 300 32px/38px Roboto;
+  letter-spacing: 0;
+  text-align: center;
+  opacity: 1;
+}
+
+.searchInput {
+  bottom: 25px;
+  width: 70%;
+  height: 37px;
+}
+
+.CstmAvatarStyle {
+  top: 5px;
+  width: 38px;
+  height: 38px;
+}
+
+.CstmProfileName {
+  position: relative;
+  top: 5px;
+  height: 32px;
+  padding: 0 0 0 10px;
+  color: #1bc263 !important;
+  font: normal normal bold 14px/19px Roboto;
+  letter-spacing: 0;
+  text-align: center;
+  opacity: 1;
+}
+
+.cstmCartCSS {
+  position: relative;
+  right: 10px;
+  bottom: 5px;
+  font-size: 100%;
+}
+
+.cstmCartCount {
+  position: relative;
+  right: 10px;
+  bottom: 10px;
+  color: #1bc263;
+  font-size: 24px;
+}
+
+.cstmCartButton {
+  position: relative;
+  top: 10px;
+  width: 38px;
+  height: 38px;
+  background: #152e49;
+}
+
+.cstmCartCountTxt {
+  position: relative;
+  right: 17px;
+  bottom: 50px;
+}
+
+.cstmSignIn {
+  top: 15px !important;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.cartItemName {
+  padding-top: 0 !important;
+}
+
+.cstmLogOut {
+  position: relative;
+  top: 8px;
+}
+
+.loginContainer {
+  padding: 20px;
+}
+
+.trackingStatusContainer {
+  padding: 20px;
+}
+
+.registerUserContainer {
+  padding: 20px;
+}
+
+.createProductContainer {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid rgba(237, 242, 245, 1) !important;
+}
+
+.createInventoryContainer {
+  padding: 20px;
+}
+
+.getAllProd {
+  padding: 20px;
+}
+
+.table-foot {
+  height: 40px;
+}
+
+.table-head {
+  height: 40px;
+}
+
+.getAllProd {
+  padding: 20px;
+}
+
+button.showDetails {
+  padding: 10px;
+  background: url("../caret-right.svg") no-repeat center center;
+}
+button.hideDetails {
+  padding: 10px;
+  background: url("../caret-down.svg") no-repeat center center;
+}
+
+button.dataTableEdit {
+  padding: 10px;
+  background: url("../pencil-square.svg") no-repeat center center !important;
+}
+
+button.dataTableDelete {
+  padding: 10px;
+  background: url("../trash-fill.svg") no-repeat center center;
+}
+
+div.loading {
+  background: url("../loading.svg") no-repeat center center;
+}
+
+img.dataTablereOrder {
+  position: relative !important;
+  bottom: 3px !important;
+  /* background: url("../re-order.png") no-repeat center center; */
+}
+
+.prodName {
+  color: #152e49 !important;
+  font: normal normal bold 18px/40px Roboto !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+}
+
+.loopPrice.text-muted {
+  color: #1bc263 !important;
+  font: normal normal bold 32px/40px Roboto !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+}
+
+.reviewText {
+  color: #152e49 !important;
+  font: normal normal 300 18px/40px Roboto !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+}
+
+.HeadingHomePage {
+  color: #152e49 !important;
+  font: normal normal 300 32px/38px Roboto !important;
+  letter-spacing: 0 !important;
+  text-align: left !important;
+  opacity: 1 !important;
+}
+
+.formField {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.prodImg {
+  width: 94% !important;
+  margin-left: 5px;
+}
