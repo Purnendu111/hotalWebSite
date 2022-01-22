@@ -1,9 +1,9 @@
 <template>
-    <div  style="background: #2a5726">
-        <b-navbar toggleable="lg" style="margin-left: 50px !important;">
+    <div  style="background: #003724">
+        <b-navbar toggleable="lg" style="margin-left: 60px !important; height: 80px">
             <b-navbar-brand href="/"
                 >
-                    <img src="../../assets/crownLogo.png" height="60px" width="70px"/><span class="logoTxt"> a Luxury Experience</span>
+                <span class="logoTxt"> MalharGreens </span>
                 </b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
