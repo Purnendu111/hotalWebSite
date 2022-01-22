@@ -1,34 +1,42 @@
 <template>
-  <div style="padding: 0 30px">
+  <div style="padding: 0">
     <b-row>
       <b-col>
         <div>
           <b-carousel
-            id="carousel-no-animation"
-            style="text-shadow: 0px 0px 2px #000"
-            no-animation
-            :interval="interval"
-            indicators
-            img-width="1024"
-            img-height="480"
+            id="carousel-1"
+			v-model="slide"
+			:interval="5000"
+			controls
+			indicators
+			background="#ccc"
+			img-width="1024"
+			img-height="400"
+			style="text-shadow: 1px 1px 2px #000;"
+			@sliding-start="onSlideStart"
+			@sliding-end="onSlideEnd"
           >
+		<b-carousel-slide
+              caption="Decorate & Celebrate Your Special Day with Us"
+              :img-src="getImgUrl('front.jpg')"
+            ></b-carousel-slide>
             <b-carousel-slide
-              caption="First slide"
+              caption="Engagement"
               :img-src="getImgUrl('1.jpg')"
             ></b-carousel-slide>
             <b-carousel-slide
-              caption="Second Slide"
+              caption="Office party"
               :img-src="getImgUrl('office party.jpg')"
             ></b-carousel-slide>
             <b-carousel-slide
-              caption="Third Slide"
-              :img-src="getImgUrl('party.jpg')"
+              caption="Filming Location"
+              :img-src="getImgUrl('FlimingLocation.jpg')"
             ></b-carousel-slide>
             <b-carousel-slide
-              caption="Fourth Slide"
+              caption="Wedding Services"
               :img-src="getImgUrl('wedding.jpeg')"
             ></b-carousel-slide>
-          </b-carousel>
+        </b-carousel>
         </div>
       </b-col>
     </b-row>
@@ -50,7 +58,6 @@ export default {
       loading: false,
       topProdList: prod.topProdList,
       newProdList: prod.newProdList,
-	  interval: 5000
     };
   },
   computed: {

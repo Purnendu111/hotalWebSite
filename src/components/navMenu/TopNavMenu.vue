@@ -1,6 +1,6 @@
 <template>
     <div  style="background: #2a5726">
-        <b-navbar toggleable="lg" style="margin-left: 80px !important;">
+        <b-navbar toggleable="lg" style="margin-left: 50px !important;">
             <b-navbar-brand href="/"
                 >
                     <img src="../../assets/crownLogo.png" height="60px" width="70px"/><span class="logoTxt"> a Luxury Experience</span>
