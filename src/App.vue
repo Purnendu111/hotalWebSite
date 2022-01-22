@@ -21,7 +21,7 @@
 <script>
 import TopNavMenu from "./components/navMenu/TopNavMenu.vue";
 import Header from "./components/navMenu/Header.vue";
-// import CartDetails from "./components/shipping/cartDetails.vue";
+// import CartDetails from "./components/shipping/cartDetails.vue"; test
 
 export default {
 	name: "App",
