@@ -1,118 +1,77 @@
 <template>
-  <div style="padding: 0">
-    <b-row>
-      <b-col>
-        <div>
-          <b-carousel
-            id="carousel-1"
+	<div style="padding: 0">
+		<b-carousel
+			id="carousel-1"
+			fade
 			v-model="slide"
-			:interval="5000"
+			:interval="4000"
 			controls
 			indicators
-			background="#ccc"
+			background="#ababab"
 			img-width="1024"
-			img-height="400"
-			style="text-shadow: 1px 1px 2px #000;"
+			img-height="250"
+			style="text-shadow: 1px 1px 2px #333"
 			@sliding-start="onSlideStart"
 			@sliding-end="onSlideEnd"
-          >
-		<b-carousel-slide
-              caption="Decorate & Celebrate Your Special Day with Us"
-              :img-src="getImgUrl('front.jpg')"
-            ></b-carousel-slide>
-            <b-carousel-slide
-              caption="Engagement"
-              :img-src="getImgUrl('1.jpg')"
-            ></b-carousel-slide>
-            <b-carousel-slide
-              caption="Office party"
-              :img-src="getImgUrl('office party.jpg')"
-            ></b-carousel-slide>
-            <b-carousel-slide
-              caption="Filming Location"
-              :img-src="getImgUrl('FlimingLocation.jpg')"
-            ></b-carousel-slide>
-            <b-carousel-slide
-              caption="Wedding Services"
-              :img-src="getImgUrl('wedding.jpeg')"
-            ></b-carousel-slide>
-        </b-carousel>
-        </div>
-      </b-col>
-    </b-row>
-  </div>
+		>
+			<!-- Text slides with image -->
+			<b-carousel-slide
+				class="cstmCarousel"
+				caption="Decorate & Celebrate Your Special Day with Us"
+				:img-src="getImgUrl('front.jpg')"
+				height="300px"
+			></b-carousel-slide>
+
+			<!-- Slides with custom text -->
+			<b-carousel-slide :img-src="getImgUrl('1.jpg')">
+				<h1>Engagement</h1>
+			</b-carousel-slide>
+
+			<!-- Slides with image only -->
+			<b-carousel-slide :img-src="getImgUrl('office party.jpg')">
+				<h1>Office party</h1>
+			</b-carousel-slide>
+
+			<!-- Slides with img slot -->
+			<!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+			<b-carousel-slide>
+				<template v-slot:img>
+					<img
+						class="d-block img-fluid w-100"
+						width="1024"
+						height="480"
+						:src="getImgUrl('FlimingLocation.jpg')"
+						alt="image slot"
+					/>
+				</template>
+				<h1>Filming Location</h1>
+			</b-carousel-slide>
+			<b-carousel-slide :img-src="getImgUrl('wedding.jpeg')">
+				<h1>Wedding Services</h1>
+			</b-carousel-slide>
+		</b-carousel>
+	</div>
 </template>
 
 <script>
-// import { mapState } from "vuex";
-import prod from "../../assets/items.json";
-
-//import StarRating from "vue-star-rating";
 export default {
-  name: "homePage",
-  components: {
-    //StarRating,
-  },
-  data() {
-    return {
-      loading: false,
-      topProdList: prod.topProdList,
-      newProdList: prod.newProdList,
-    };
-  },
-  computed: {
-    // ...mapState({
-    //     topProdList: "products.topProdList",
-    //     newProdList: "products.newProdList",
-    // }),
-    // topProdList() {
-    //     if (this.loading == false) {
-    //         return this.$store.state.products.topProdList;
-    //     } else {
-    //         return null;
-    //     }
-    // },
-    // newProdList() {
-    //     if (this.loading == false) {
-    //         return this.$store.state.products.newProdList;
-    //     } else {
-    //         return null;
-    //     }
-    // },
-  },
-  /*async created() {
-    // this.loading = true;
-    await this.$store.dispatch("fetchAllProducts", prod).then(() => {
-      this.loading = false;
-    });
-  },*/
-  mounted() {
-    // document.addEventListener("contextmenu", (event) => event.preventDefault()); //prevent right click
-  },
-  methods: {
-    addprod() {
-      this.addedProd = parseInt(this.addedProd) + 1;
-    },
-    minusprod() {
-      if (this.addedProd > 1) {
-        this.addedProd = parseInt(this.addedProd) - 1;
-      }
-    },
-    cartManipulate(product, callFrom) {
-      console.log("callFrom=====" + callFrom);
-      let obj = [product, callFrom];
-      this.$store.dispatch("cartManipulate", obj);
-    },
-    getImgUrl: function (imagePath) {
-      console.log("@/assets/img/======" + imagePath);
-      return require("@/assets/img/" + imagePath);
-    },
-    gotoSpecProd(id) {
-      console.log("id== " + id);
-      this.$router.push({
-        path: "/productdetails/" + id,
-      });
-    },
-  },
+	data() {
+		return {
+			slide: 0,
+			sliding: null,
+		};
+	},
+	methods: {
+		onSlideStart() {
+			this.sliding = true;
+		},
+		onSlideEnd() {
+			this.sliding = false;
+		},
+		getImgUrl: function (imagePath) {
+			console.log("@/assets/img/======" + imagePath);
+			return require("@/assets/img/" + imagePath);
+		},
+	},
 };
 </script>

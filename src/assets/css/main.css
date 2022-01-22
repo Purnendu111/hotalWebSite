@@ -35,7 +35,7 @@
 
 .separator::before,
 .separator::after {
-  content: "";
+  content: '';
   flex: 1;
   border-bottom: 1px dashed #000;
 }
@@ -82,7 +82,7 @@ h4 {
 }
 
 .cstmRatingStyle {
-  height: "30px";
+  height: '30px';
   padding: 0;
   margin-left: -5px;
   color: #1bc263;
@@ -145,6 +145,10 @@ h4 {
   letter-spacing: 0;
   text-align: center;
   opacity: 1;
+}
+
+.img-fluid {
+  height: 100% !important;
 }
 
 .searchInput {
@@ -259,25 +263,25 @@ h4 {
 
 button.showDetails {
   padding: 10px;
-  background: url("../caret-right.svg") no-repeat center center;
+  background: url('../caret-right.svg') no-repeat center center;
 }
 button.hideDetails {
   padding: 10px;
-  background: url("../caret-down.svg") no-repeat center center;
+  background: url('../caret-down.svg') no-repeat center center;
 }
 
 button.dataTableEdit {
   padding: 10px;
-  background: url("../pencil-square.svg") no-repeat center center !important;
+  background: url('../pencil-square.svg') no-repeat center center !important;
 }
 
 button.dataTableDelete {
   padding: 10px;
-  background: url("../trash-fill.svg") no-repeat center center;
+  background: url('../trash-fill.svg') no-repeat center center;
 }
 
 div.loading {
-  background: url("../loading.svg") no-repeat center center;
+  background: url('../loading.svg') no-repeat center center;
 }
 
 img.dataTablereOrder {
@@ -331,19 +335,17 @@ img.dataTablereOrder {
   font-size: 17px !important;
 }
 
-.logoTxt{
+.logoTxt {
   position: relative;
   top: 17px !important;
   color: #fcba84 !important;
 }
 
-.marginL70{
+.marginL70 {
   margin-left: 70px !important;
 }
 
-.NavUL{
+.NavUL {
   margin-left: auto !important;
   margin-right: 190px !important;
 }
-
-
