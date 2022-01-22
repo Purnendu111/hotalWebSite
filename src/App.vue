@@ -2,15 +2,7 @@
 	<div id="app">
 		<!-- <div v-if="role == '' || role == 'consumer_role'"> -->
 		<div id="navDivContainer" class="navDivContainer">
-			<div>
-				<Header />
-			</div>
-			<div v-if="role == '' || role == 'consumer_role'">
 				<TopNavMenu />
-			</div>
-			<div v-else>
-				<TopNavMenuAdmin />
-			</div>
 		</div>
 		<div id="bodyContainer" class="bodyContainer">
 			<router-view></router-view>
@@ -20,14 +12,14 @@
 </template>
 <script>
 import TopNavMenu from "./components/navMenu/TopNavMenu.vue";
-import Header from "./components/navMenu/Header.vue";
+//import Header from "./components/navMenu/Header.vue";
 // import CartDetails from "./components/shipping/cartDetails.vue";
 
 export default {
 	name: "App",
 	components: {
 		TopNavMenu,
-		Header,
+		//Header,
 		// CartDetails,
 	},
 	created() {
@@ -70,20 +62,6 @@ export default {
 			},
 			true
 		);
-		const isAuthenticated = this.$store.state.isAuthenticated;
-
-		this.role = this.$store.state.role;
-		console.log(isAuthenticated + "====role====" + this.role);
-		if (
-			this.role != "" &&
-			this.role != "consumer_role" &&
-			this.$route.path == "/"
-		) {
-			// console.log("callingggggggggg")
-			this.$router.push({
-				path: "/orderhome",
-			});
-		}
 	},
 	methods: {
 		appHt: function () {
@@ -97,5 +75,5 @@ export default {
 };
 </script>
 <style>
-/* @import "assets/css/main.css"; */
+@import "assets/css/main.css";
 </style>

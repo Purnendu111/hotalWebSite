@@ -41,11 +41,11 @@
 }
 
 .separator:not(:empty)::before {
-  margin-right: .25em;
+  margin-right: 0.25em;
 }
 
 .separator:not(:empty)::after {
-  margin-left: .25em;
+  margin-left: 0.25em;
 }
 
 a {
@@ -324,3 +324,26 @@ img.dataTablereOrder {
   width: 94% !important;
   margin-left: 5px;
 }
+
+.navMenuAText a {
+  color: white !important;
+  font-weight: 400 !important;
+  font-size: 17px !important;
+}
+
+.logoTxt{
+  position: relative;
+  top: 17px !important;
+  color: #fcba84 !important;
+}
+
+.marginL70{
+  margin-left: 70px !important;
+}
+
+.NavUL{
+  margin-left: auto !important;
+  margin-right: 190px !important;
+}
+
+
