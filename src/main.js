@@ -22,6 +22,8 @@ import Vuex from 'vuex';
 // import './axios';
 import VueTreeNavigation from 'vue-tree-navigation';
 import loading from 'vuejs-loading-screen';
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 
 // DataTable Import with components
 import 'datatables.net-bs4';
@@ -59,6 +61,8 @@ Vue.use(loading, {
   // // icon color
   // icon_color: '#ffffff',
 });
+
+Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);

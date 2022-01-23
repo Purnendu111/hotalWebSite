@@ -1,16 +1,14 @@
 <template>
-	<div style="padding: 0">
+	<div style="padding: 0; height: 100%">
 		<b-carousel
 			id="carousel-1"
 			fade
 			v-model="slide"
-			:interval="4000"
+			:interval="100000"
 			controls
 			indicators
 			background="#ababab"
-			img-width="1024"
-			img-height="250"
-			style="text-shadow: 1px 1px 2px #333"
+			style="text-shadow: 1px 1px 2px #333; height: 100%"
 			@sliding-start="onSlideStart"
 			@sliding-end="onSlideEnd"
 		>
@@ -18,17 +16,41 @@
 			<b-carousel-slide
 				class="cstmCarousel"
 				caption="Decorate & Celebrate Your Special Day with Us"
-				:img-src="getImgUrl('front.jpg')"
-				height="300px"
-			></b-carousel-slide>
+				height="100%"
+			>
+				<template v-slot:img>
+					<img
+						class="d-block w-100"
+						:src="getImgUrl('front.jpg')"
+						style="width: 100% !important; height: 566px !important"
+						alt="image slot"
+					/>
+				</template>
+			</b-carousel-slide>
 
 			<!-- Slides with custom text -->
-			<b-carousel-slide :img-src="getImgUrl('1.jpg')">
+			<b-carousel-slide>
+				<template v-slot:img>
+					<img
+						class="d-block w-100"
+						:src="getImgUrl('1.jpg')"
+						style="width: 100% !important; height: 566px !important"
+						alt="image slot"
+					/>
+				</template>
 				<h1>Engagement</h1>
 			</b-carousel-slide>
 
 			<!-- Slides with image only -->
-			<b-carousel-slide :img-src="getImgUrl('office party.jpg')">
+			<b-carousel-slide>
+				<template v-slot:img>
+					<img
+						class="d-block w-100"
+						:src="getImgUrl('office party.jpg')"
+						style="width: 100% !important; height: 566px !important"
+						alt="image slot"
+					/>
+				</template>
 				<h1>Office party</h1>
 			</b-carousel-slide>
 
@@ -37,19 +59,34 @@
 			<b-carousel-slide>
 				<template v-slot:img>
 					<img
-						class="d-block img-fluid w-100"
-						width="1024"
-						height="480"
+						class="d-block w-100"
+						style="width: 100% !important; height: 566px !important"
 						:src="getImgUrl('FlimingLocation.jpg')"
 						alt="image slot"
 					/>
 				</template>
 				<h1>Filming Location</h1>
 			</b-carousel-slide>
-			<b-carousel-slide :img-src="getImgUrl('wedding.jpeg')">
+			<b-carousel-slide>
+				<template v-slot:img>
+					<img
+						class="d-block w-100"
+						style="width: 100% !important; height: 566px !important"
+						:src="getImgUrl('wedding.jpeg')"
+						alt="image slot"
+					/>
+				</template>
 				<h1>Wedding Services</h1>
 			</b-carousel-slide>
 		</b-carousel>
+		<div style="height: 200px">
+			<VueCtkDateTimePicker
+				id="myDatePicker"
+				:disabled-dates="disabledDates"
+				:min-date="minDate"
+				v-model="dateTime"
+			/>
+		</div>
 	</div>
 </template>
 
@@ -59,6 +96,10 @@ export default {
 		return {
 			slide: 0,
 			sliding: null,
+			dateTime: null,
+			disabledDates: ["2022-01-25", "2022-01-27"],
+			disabledHours: ["2022-01-25", "2022-01-27"],
+			minDate: "2022-01-23",
 		};
 	},
 	methods: {
