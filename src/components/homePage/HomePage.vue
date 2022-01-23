@@ -79,9 +79,10 @@
 				<h1>Wedding Services</h1>
 			</b-carousel-slide>
 		</b-carousel>
-		<div style="height: 200px">
+		<div style="">
 			<VueCtkDateTimePicker
 				id="myDatePicker"
+				class="myDatePicker"
 				:disabled-dates="disabledDates"
 				:min-date="minDate"
 				v-model="dateTime"
@@ -99,8 +100,15 @@ export default {
 			dateTime: null,
 			disabledDates: ["2022-01-25", "2022-01-27"],
 			disabledHours: ["2022-01-25", "2022-01-27"],
-			minDate: "2022-01-23",
+			minDate: "",
 		};
+	},
+	mounted() {
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, "0");
+		var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+		var yyyy = today.getFullYear();
+		this.minDate = yyyy + "-" + mm + "-" + dd;
 	},
 	methods: {
 		onSlideStart() {
