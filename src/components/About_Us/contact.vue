@@ -11,6 +11,7 @@
           <span class="label-input100">FULL NAME *</span>
           <input
             class="input100"
+            id="name"
             v-model="name"
             type="text"
             name="name"
@@ -25,6 +26,7 @@
           <span class="label-input100">Email *</span>
           <input
             class="input100"
+            id="email"
             v-model="email"
             type="text"
             name="email"
@@ -39,6 +41,7 @@
           <span class="label-input100">Phone *</span>
           <input
             class="input100"
+            id="phone"
             v-model="phone"
             type="text"
             name="phone"
@@ -50,8 +53,8 @@
           <span class="label-input100">Needed Services *</span>
           <div>
             <b-form-select
-              id="domain"
-              name="domain"
+              id="services"
+              name="services"
               class="paddingLeft10"
               style="width: 100% !important"
               menu-class="w-100"
@@ -75,6 +78,7 @@
           <span class="label-input100">Message</span>
           <textarea
             class="input100"
+            id="message"
             v-model="message"
             name="message"
             placeholder="Your message here..."
@@ -82,12 +86,13 @@
         </div>
 
         <div class="container-contact100-form-btn">
-          <button class="contact100-form-btn" type="submit">
+          <button class="contact100-form-btn" type="submit" id="submit">
             <span>
               Submit
               <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
             </span>
           </button>
+          <!-- <b-button block pill variant="outline-success" id="submit" class="CstmButton">Button</b-button> -->
         </div>
       </form>
     </div>
@@ -110,8 +115,9 @@ export default {
       name: '',
       email: '',
       message: '',
-      services:'null',
-      phone:''
+      services:null,
+      phone:'',
+      count: 0
     }
   },
 
@@ -141,21 +147,88 @@ export default {
 		})*/
 	},
 	methods: {
-        sendmail: function(){
-            try {
-                emailjs.send("service_ihqsqt6","template_f4ypdm9",{
-                    from_name: this.name,
-                    message: this.message,
-                    services: this.services,
-                    reply_from: this.email,
-                }, "user_tf7AmbyaWdHiZ44pDSL2s").then((res) =>{
-                    console.log(res)
+        validateFields: function(){
+            document.getElementById("submit").blur();
+            let name = document.getElementById("name"),
+            email = document.getElementById("email"),
+            phone = document.getElementById("phone"),
+            services= document.getElementById("services");
+            if(this.name == ""){
+                this.$fire({
+                    type: "error",
+                    title: "Please enter Name",
+                    showConfirmButton: false,
+                    timer: 2000,
+                }).then(() => {
+                    name.focus();
                 });
-
-            } catch(error) {
-                console.log({error})
+                return false;
+            }else if(this.email == ""){
+                this.$fire({
+                    type: "error",
+                    title: "Please enter a valid Mail Id",
+                    showConfirmButton: false,
+                    timer: 2000,
+                }).then(() => {
+                    email.focus();
+                });
+                return false;
+            }else if(this.phone == ""){
+                this.$fire({
+                    type: "error",
+                    title: "Please enter Phone Number",
+                    showConfirmButton: false,
+                    timer: 2000,
+                }).then(() => {
+                    phone.focus();
+                });
+                return false;
+            }else if(this.services === null){
+                this.$fire({
+                    type: "error",
+                    title: "Please select a Service",
+                    showConfirmButton: false,
+                    timer: 2000,
+                }).then(() => {
+                    services.focus();
+                });
+                return false;
+            }else{
+                return true;
             }
+        },
+        sendmail: function(){
+            this.count++
+            document.getElementById("submit").disabled = true;
+            
+            let validateFieldsVal = this.validateFields();
+            if(validateFieldsVal){
+                try {
+                    emailjs.send("service_ihqsqt6","template_f4ypdm9",{
+                        from_name: this.name,
+                        message: this.message,
+                        services: this.services,
+                        reply_from: this.email,
+                    }, "user_tf7AmbyaWdHiZ44pDSL2s").then((res) =>{
+                    
+                    setTimeout(function(){ 
+                       document.getElementById("submit").disabled = false;
+                    }, 10000);
+                        console.log(res.status)
+                    });
 
+                } catch(error) {
+                    console.log({error})
+                }
+                //document.getElementById("submit").disabled = false;
+            }else{
+                setTimeout(function(){ 
+                    document.getElementById("submit").disabled = false;
+                }, 10000);
+                //document.getElementById("submit").disabled = false;
+                return false;
+            }  
+            console.log(this.count+"==count") 
         }
 	},
 };
