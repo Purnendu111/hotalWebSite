@@ -39,6 +39,7 @@
     "vue-axios": "^3.3.7",
     "vue-axios-cors": "^1.0.1",
     "vue-ctk-date-time-picker": "^2.5.0",
+    "vue-hotel-datepicker": "^4.5.1",
     "vue-loader": "^15.9.8",
     "vue-paypal-checkout": "^3.2.0",
     "vue-resource": "^1.5.3",
