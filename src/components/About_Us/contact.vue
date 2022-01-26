@@ -55,7 +55,7 @@
             <b-form-select
               id="services"
               name="services"
-              class="paddingLeft10"
+              class="paddingLeft10 cstmSelect"
               style="width: 100% !important"
               menu-class="w-100"
               v-model="services"
@@ -63,10 +63,14 @@
               <b-form-select-option :value="null"
                 >Please select Service</b-form-select-option
               >
-              <b-form-select-option :value="10">10</b-form-select-option>
-              <b-form-select-option :value="25">25</b-form-select-option>
-              <b-form-select-option :value="50">50</b-form-select-option>
-              <b-form-select-option :value="100">100</b-form-select-option>
+              <b-form-select-option class="cstmSelectoption" :value="Wedding">Wedding</b-form-select-option>
+              <b-form-select-option class="cstmSelectoption" :value="Wedding_Reception">Wedding[Reception Only]</b-form-select-option>
+              <b-form-select-option class="cstmSelectoption" :value="BirthDay_Party">BirthDay Party</b-form-select-option>
+              <b-form-select-option :value="Food_Feeding_Ceremony">Food Feeding Ceremony[Annaprashan]</b-form-select-option>
+              <b-form-select-option :value="Shooting_Venue">Shooting Venue</b-form-select-option>
+              <b-form-select-option :value="PrePost_WeddingShoot">Pre & Post Wedding Shoot</b-form-select-option>
+              <b-form-select-option :value="Office_Party_or_Get_Together">Office Party/Get Together</b-form-select-option>
+              <b-form-select-option :value="Others">Others</b-form-select-option>
             </b-form-select>
             <div class="dropDownSelect2"></div>
           </div>

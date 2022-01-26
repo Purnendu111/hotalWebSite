@@ -367,3 +367,7 @@ img.dataTablereOrder {
   font-size: 24px !important;
   font-weight: 600 !important;
 }
+
+.cstmSelectoption:hover{
+  background-color: #1bc263 !important;
+}
