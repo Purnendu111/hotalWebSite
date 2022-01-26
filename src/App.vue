@@ -1,12 +1,10 @@
 <template>
 	<div id="app">
-		<!-- <div v-if="role == '' || role == 'consumer_role'"> -->
 		<div id="navDivContainer" class="navDivContainer">
 				<TopNavMenu />
 		</div>
 		<div id="bodyContainer" class="bodyContainer">
 			<router-view></router-view>
-			<!-- <CartDetails id="" /> -->
 		</div>
 	</div>
 </template>
