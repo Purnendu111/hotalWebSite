@@ -363,11 +363,14 @@ img.dataTablereOrder {
 
 .CstmButton{
   background-color: #94a698 !important;
-  color: rgb(0, 55, 36) !important;
+  color: rgb(8, 48, 34) !important;
   font-size: 24px !important;
   font-weight: 600 !important;
 }
 
-.cstmSelectoption:hover{
-  background-color: #1bc263 !important;
+select.cstmSelectServices option:hover {
+  margin: 40px;
+  background: rgba(189, 180, 180, 0.3);
+  color: rgb(3, 94, 53);
+  
 }

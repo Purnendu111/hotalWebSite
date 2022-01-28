@@ -1,11 +1,8 @@
 <template>
 	<div style="padding: 0">
-		<b-embed
-			type="iframe"
-			aspect="4by3"
-			src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-			allowfullscreen
-		></b-embed>
+		<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+</div>
 		<div style="">
 			<HotelDatePicker
 				:disabledDates="['2022-01-28', '2022-02-11', '2018-02-21']"

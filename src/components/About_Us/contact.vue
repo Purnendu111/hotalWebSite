@@ -55,17 +55,18 @@
             <b-form-select
               id="services"
               name="services"
-              class="paddingLeft10 cstmSelect"
+              class="paddingLeft10 cstmSelectServices"
               style="width: 100% !important"
               menu-class="w-100"
               v-model="services"
             >
               <b-form-select-option :value="null"
-                >Please select Service</b-form-select-option
+                >Please select a Service</b-form-select-option
               >
-              <b-form-select-option class="cstmSelectoption" :value="Wedding">Wedding</b-form-select-option>
-              <b-form-select-option class="cstmSelectoption" :value="Wedding_Reception">Wedding[Reception Only]</b-form-select-option>
-              <b-form-select-option class="cstmSelectoption" :value="BirthDay_Party">BirthDay Party</b-form-select-option>
+              <b-form-select-option :value="Engagement">Engagement</b-form-select-option>
+              <b-form-select-option :value="Wedding">Wedding</b-form-select-option>
+              <b-form-select-option :value="Wedding_Reception">Wedding[Reception Only]</b-form-select-option>
+              <b-form-select-option :value="BirthDay_Party">BirthDay Party</b-form-select-option>
               <b-form-select-option :value="Food_Feeding_Ceremony">Food Feeding Ceremony[Annaprashan]</b-form-select-option>
               <b-form-select-option :value="Shooting_Venue">Shooting Venue</b-form-select-option>
               <b-form-select-option :value="PrePost_WeddingShoot">Pre & Post Wedding Shoot</b-form-select-option>
