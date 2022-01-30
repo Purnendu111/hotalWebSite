@@ -10,12 +10,12 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav class="NavUL">
-                    <b-nav-item class="navMenuAText marginL70" href="/">Home</b-nav-item>
-                    <b-nav-item class="navMenuAText marginL70" href="">Rooms</b-nav-item>
-                    <b-nav-item class="navMenuAText marginL70" href="/gallary">Gallery</b-nav-item>
-                    <b-nav-item class="navMenuAText marginL70" href="">Associate Services</b-nav-item>
-                    <b-nav-item class="navMenuAText marginL70" href="/about_us">About Us</b-nav-item>
-                    <b-nav-item class="navMenuAText marginL70" href="/contact">Contact Us</b-nav-item>
+                    <b-nav-item class="navMenuAText marginL60" href="/">Home   |</b-nav-item>
+                    <b-nav-item class="navMenuAText marginL60" href="">Rooms   |</b-nav-item>
+                    <b-nav-item class="navMenuAText marginL60" href="/gallary">Gallery   |</b-nav-item>
+                    <b-nav-item class="navMenuAText marginL60" href="">Associate Services   |</b-nav-item>
+                    <b-nav-item class="navMenuAText marginL60" href="/about_us">About Us   |</b-nav-item>
+                    <b-nav-item class="navMenuAText marginL60" href="/contact">Contact Us   |</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
