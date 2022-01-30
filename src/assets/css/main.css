@@ -440,7 +440,7 @@ select.form-control option {
   color: #000 !important
 }
 
-.form-group {
+.form-group { 
   position: relative;
   margin-bottom: 30px
 }
@@ -456,4 +456,11 @@ select.form-control option {
   box-shadow: 0px 0px 0px 2px transparent;
   -webkit-transition: 0.2s;
   transition: 0.2s
+}
+
+.videoInnerRow{
+  position: relative !important;
+  margin: 0 !important;
+  align-items: center;
+  top: 45%;
 }

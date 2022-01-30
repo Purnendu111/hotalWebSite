@@ -1,39 +1,40 @@
 <template>
 <div>
 <!------ Include the above in your HEAD tag ---------->
+<div id="pageHead">
 <h2 class="text-center">About Us</h2>
 <p class="sub-text text-center">Know our great story</p>
-
-<div class="container section">
-	<div class="row">
-		<div class="col-md-6">
+</div>
+<div class="container section" id="pageBody">
+	<b-row>
+		<b-col>
 			<h3>
 				Highly Skilled Volunteers
 			</h3>
 			<p>
 				Through its program, TopVolunteer™, GetLance partners with leading nonprofits and NGOs around the world who need high-skilled talent for their volunteer initiatives. Members of the GetLance network are encouraged to offer their skills and experience to these projects, whether to solve a timely problem or to contribute on an ongoing basis.
 			</p>
-		</div>
-		<div class="col-md-6">
+		</b-col>
+		<b-col >
 			<img src="https://preview.ibb.co/erdq8p/Employee-1.jpg" alt=""/>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
+		</b-col>
+	</b-row>
+	<b-row>
+		<b-col>
 			<img src="https://preview.ibb.co/cu76g9/Employee-2.jpg" alt=""/>
-		</div>
-		<div class="col-md-6">
+		</b-col>
+		<b-col>
 			<h3>
 				Cutting-Edge Skill Development
 			</h3>
 			<p>
 				GetLance Academy hosts regular, rigorous learning sessions for the most in-demand skills. By presenting our elite, experienced network with ongoing opportunities to update and elevate their portfolios, we are able to solve pressing talent shortages while ensuring success for dedicated participants.
 			</p>
-		</div>
-	</div>
+		</b-col>
+	</b-row>
 </div>
 <!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="">
+<div class="" id="pageFoot">
   <!-- Footer -->
   <footer
           class="text-center text-lg-start text-white"
@@ -92,7 +93,7 @@
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <div class="col-md-3 col-lg-3 col-xl-3 mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Stay In Touch</h6>
 
             <!-- Facebook -->
@@ -101,8 +102,7 @@
                style="background-color: #3b5998"
                href="https://www.facebook.com/anindita.roychowdhury.501"
                role="button"
-               ><i class="fab fa-facebook-f"></i
-              ></a>
+               ><b-icon icon="facebook" aria-hidden="true"></b-icon></a>
 
         
 
@@ -112,8 +112,7 @@
                style="background-color: #dd4b39"
                href="#!"
                role="button"
-               ><i class="fab fa-google"></i
-              ></a>
+               ><b-icon icon="google" aria-hidden="true"></b-icon></a>
 
             <!-- Instagram -->
             <a
@@ -121,8 +120,7 @@
                style="background-color: #ac2bac"
                href="#!"
                role="button"
-               ><i class="fab fa-instagram"></i
-              ></a>
+               ><b-icon icon="instagram" aria-hidden="true"></b-icon></a>
 
            
           </div>
@@ -139,3 +137,14 @@
 	
 </div>
 </template>
+
+
+<script>
+
+export default({
+  mounted() {
+  },
+  methods: {
+  },
+})
+</script>
