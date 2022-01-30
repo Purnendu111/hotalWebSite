@@ -7,6 +7,10 @@ import AxiosPlugin from 'vue-axios-cors';
 import BootstrapVue from 'bootstrap-vue';
 import VueSession from 'vue-session';
 
+import VideoBackground from 'vue-responsive-video-background-player';
+
+Vue.component('video-background', VideoBackground);
+
 // User Related
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-vue/dist/bootstrap-vue.min.css';
