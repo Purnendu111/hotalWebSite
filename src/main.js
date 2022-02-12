@@ -29,6 +29,9 @@ import loading from 'vuejs-loading-screen';
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 
+import VueModal from '@kouts/vue-modal'
+import '@kouts/vue-modal/dist/vue-modal.css'
+
 // DataTable Import with components
 import 'datatables.net-bs4';
 import 'datatables.net-bs4/css/dataTables.bootstrap4.min.css';
@@ -82,6 +85,8 @@ new Vue({
 }).$mount('#app');
 
 Vue.use(Vuex);
+
+Vue.component('Modal', VueModal)
 
 Vue.prototype.cartValue = '3';
 Vue.use(require('vue-resource'));

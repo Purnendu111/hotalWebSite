@@ -7,127 +7,61 @@
     >
       <b-row class="">
         <b-col>
-			<div>
-          <!-- <VueCtkDateTimePicker
-						id="myDatePicker"
-            noShortcuts=true
-						class="myDatePicker"
-						:disabled-dates="disabledDates"
-						:min-date="minDate"
-						:range="true"
-						v-model="dateTime"
-					>
-          <input
-						class="input100"
-						id="chkinoutDate"
-						v-model="chkinoutDate"
-						type="text"
-						placeholder="select date and time"
-					/>
-          </VueCtkDateTimePicker> -->
-        <div style="position: relative; top: 200px; text-align: center">
-			<h1>Test 1</h1>
-		</div>
+          <div>
+            <div style="position: relative; top: 50px; text-align: center">
+              <p style="font-size: 15px; color: #ccffcc">
+                MALHAR GREENS , KOLKATA
+              </p>
+              <p style="font-size: 15px; color: white">______</p>
+              <p style="font-size: 75px; color: #ccffcc">
+                ENJOY A LUXURY <br />
+                EXPERIENCE
+              </p>
+            </div>
 
-          <div id="booking" class="section">
-            <div class="section-center">
-              <div class="container">
-                <div class="row">
-                  <div
-                    class="booking-form"
-                    style="width: 100%; position: relative; top: 100px"
-                  >
-                    <form>
-                      <div
-                        class="row no-margin"
-                        style="
-                          margin-top: 0% !important;
-                          margin-bottom: 0% !important;
-                        "
-                      >
-                        <div class="col-md-2">
+            <div id="booking" class="section">
+              <div class="section-center">
+                <div class="container">
+                  <div class="row">
+                    <div
+                      class="booking-form"
+                      style="width: 90%; position: relative; top: -170px"
+                    >
+                      <b-row style="margin: 0 !important">
+                        <b-col cols="4">
                           <div class="form-header">
                             <h2>Book Now</h2>
                           </div>
-                        </div>
-                        <div class="col-md-8">
-                          <div
-                            class="row no-margin"
-                            style="
-                              margin-top: 3% !important;
-                              margin-bottom: 3% !important;
-                            "
-                          >
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <span class="form-label">Check In</span>
-                                <input
-                                  class="form-control"
-                                  type="date"
-                                  style="font-size: 20px !important"
-                                />
-                              </div>
-                            </div>
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <span class="form-label">Check out</span>
-                                <input
-                                  class="form-control"
-                                  type="date"
-                                  style="font-size: 20px !important"
-                                />
-                              </div>
-                            </div>
-                            <div class="col-md-2">
-                              <div class="form-group">
-                                <span class="form-label">Guests</span>
-                                <select class="form-control">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                </select>
-                                <span class="select-arrow"></span>
-                              </div>
-                            </div>
-                            <div class="col-md-2">
-                              <div class="form-group">
-                                <span class="form-label">Kids</span>
-                                <select class="form-control">
-                                  <option>0</option>
-                                  <option>1</option>
-                                  <option>2</option>
-                                </select>
-                                <span class="select-arrow"></span>
-                              </div>
-                            </div>
-                            <div class="col-md-2">
-                              <div class="form-group">
-                                <span class="form-label">Guests</span>
-                                <select class="form-control">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                </select>
-                                <span class="select-arrow"></span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-2">
-                          <div class="form-btn">
-                            <button class="submit-btn">
-                              Check availability
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
+                        </b-col>
+                        <b-col
+                          cols="5"
+                          align-self="center"
+                          style="text-align: center"
+                        >
+                          <span class="form-label">Check In & Check Out</span>
+                          <label
+                            for=""
+                            @click="showModal = true"
+                            style="cursor: pointer"
+                            >{{showModal}} = 26 Feb, 2022 - 28 Feb, 2022
+                            <b-icon
+                              icon="calendar2-day-fill"
+                              aria-hidden="true"
+                            ></b-icon
+                          ></label>
+                        </b-col>
+                        <b-col cols="3" align-self="center">
+                          <button class="submit-btn" @click="showModal = true">
+                            Check availability
+                          </button>
+                        </b-col>
+                      </b-row>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-			</div>
         </b-col>
       </b-row>
     </video-background>
@@ -136,6 +70,63 @@
         <b-col style="height: 200px"> </b-col>
       </b-row>
     </div>
+    <div>
+      <div class="container section">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Malhar Greens, Kolkata</h3>
+            <p>
+              <button class="btn">
+                <i class="fa fa-home mr-2"></i>North Ramchandrapur</button
+              ><br />
+              <button class="btn">
+                <i class="fa fa-envelope mr-2"></i>abc@gmail.com</button
+              ><br />
+              <button class="btn">
+                <i class="fa fa-phone mr-2"></i> +91-0000000000</button
+              ><br />
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img src="https://preview.ibb.co/erdq8p/Employee-1.jpg" alt="" />
+            <img src="https://preview.ibb.co/cu76g9/Employee-2.jpg" alt="" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="https://preview.ibb.co/cu76g9/Employee-2.jpg" alt="" />
+          </div>
+          <div class="col-md-6">
+            <h3>Cutting-Edge Skill Development</h3>
+            <p>
+              GetLance Academy hosts regular, rigorous learning sessions for the
+              most in-demand skills. By presenting our elite, experienced
+              network with ongoing opportunities to update and elevate their
+              portfolios, we are able to solve pressing talent shortages while
+              ensuring success for dedicated participants.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="https://preview.ibb.co/cu76g9/Employee-2.jpg" alt="" />
+          </div>
+          <div class="col-md-6">
+            <h3>Cutting-Edge Skill Development</h3>
+            <p>
+              GetLance Academy hosts regular, rigorous learning sessions for the
+              most in-demand skills. By presenting our elite, experienced
+              network with ongoing opportunities to update and elevate their
+              portfolios, we are able to solve pressing talent shortages while
+              ensuring success for dedicated participants.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Modal v-model="showModal">
+      <p>Modal content goes here...</p>
+    </Modal>
   </div>
 </template>
 
@@ -144,6 +135,7 @@ export default {
   data() {
     return {
       slide: 0,
+      showModal: false,
       sliding: null,
       dateTime: null,
       disabledDates: ["2022-01-25", "2022-01-27"],
@@ -168,6 +160,24 @@ export default {
     getImgUrl: function (imagePath) {
       console.log("@/assets/img/======" + imagePath);
       return require("@/assets/img/" + imagePath);
+    },
+    callPopForDate() {
+      let htmlCont =
+        '<div id="cstmPopUPContent">' +
+        'Check In : <input id="chkInDate" type="date">' +
+        'Check Out : <input id="chkOutDate" type="date"><br/>' +
+        "test";
+      ("</div>");
+      alert(htmlCont);
+      this.$fire({
+        title: "<strong></strong>",
+        icon: "info",
+        width: 900,
+        html: htmlCont,
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+      });
     },
   },
 };

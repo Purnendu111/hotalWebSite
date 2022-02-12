@@ -374,26 +374,6 @@ select.cstmSelectServices option:hover {
   color: rgb(3, 94, 53);
   
 }
-.section .row{
-  margin-top: 7%;
-  margin-bottom: 10%;
-}
-.section .row .col-md-6{
-  background: #f5f5f5;
-  margin-right: -2%;
-  padding: 5%;
-}
-.section h3{
-  color: #004085;
-}
-.section p{
-  margin-top: 10%;
-  color: #545b62;
-}
-.section img
-{
-  width: 100%;
-}
 
 #myDatePicker-input{
   height: 80px !important;
@@ -462,5 +442,25 @@ select.form-control option {
   position: relative !important;
   margin: 0 !important;
   align-items: center;
-  top: 45%;
+}
+.section .row{
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+.section .row .col-md-6{
+  background: #f5f5f5;
+  margin-right: -2%;
+  padding: 5%;
+}
+.section h3{
+  color: #004085;
+}
+.section p{
+  margin-top: 10%;
+  color: #545b62;
+}
+.section img
+{
+  
+  width: 70%;
 }

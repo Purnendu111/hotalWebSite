@@ -67,30 +67,93 @@
 								>Please select a Service</b-form-select-option
 							>
 							<b-form-select-option :value="Engagement"
-								>Engagement</b-form-select-option
+								>Engagement Parties</b-form-select-option
 							>
 							<b-form-select-option :value="Wedding"
 								>Wedding</b-form-select-option
 							>
 							<b-form-select-option :value="Wedding_Reception"
-								>Wedding[Reception Only]</b-form-select-option
+								>Wedding Reception</b-form-select-option
 							>
 							<b-form-select-option :value="BirthDay_Party"
-								>BirthDay Party</b-form-select-option
+								>BirthDay Parties</b-form-select-option
 							>
-							<b-form-select-option :value="Food_Feeding_Ceremony"
-								>Food Feeding
-								Ceremony[Annaprashan]</b-form-select-option
+							<b-form-select-option :value="Firstrice_Ceremony"
+								>First rice
+								Ceremony</b-form-select-option
 							>
-							<b-form-select-option :value="Shooting_Venue"
-								>Shooting Venue</b-form-select-option
+							<b-form-select-option :value="Upanayan_Ceremony"
+								>Upanayan Ceremony</b-form-select-option
 							>
-							<b-form-select-option :value="PrePost_WeddingShoot"
-								>Pre & Post Wedding Shoot</b-form-select-option
+							<b-form-select-option :value="Baby_shower"
+								>Baby Shower</b-form-select-option
+							>
+							<b-form-select-option :value="Pre_WeddingShoot"
+								>Pre Wedding Shoot</b-form-select-option
+							>
+							<b-form-select-option :value="Post_WeddingShoot"
+								>Post Wedding Shoot</b-form-select-option
 							>
 							<b-form-select-option
-								:value="Office_Party_or_Get_Together"
-								>Office Party/Get Together</b-form-select-option
+								:value="Office_Get_Togethers"
+								>Office Get Togethers</b-form-select-option
+							>
+							<b-form-select-option
+								:value="Family_Get_Togethers"
+								>Family Get Togethers</b-form-select-option
+							>
+							<b-form-select-option :value="Barbecue_Nights"
+								>Barbecue Nights</b-form-select-option
+							>
+							<b-form-select-option :value="Picnics"
+								>Picnics</b-form-select-option
+							>
+							<b-form-select-option :value="Book_Reading_Sessions"
+								>Book Reading Sessions</b-form-select-option
+							>
+							<b-form-select-option :value="Dance_Programmes"
+								>Dance Programmes</b-form-select-option
+							>
+							<b-form-select-option :value="Cultural_Programmes"
+								>Cultural Programmes</b-form-select-option
+							>
+							<b-form-select-option :value="Outdoor_music_shows"
+								>Outdoor Music Shows</b-form-select-option
+							>
+							<b-form-select-option :value="Movie_Nights"
+								>Movie Nights</b-form-select-option
+							>
+							<b-form-select-option :value="Ad_Shoots"
+								>Ad Shoots</b-form-select-option
+							>
+							<b-form-select-option :value="Video_Shoots"
+								>Video Shoots</b-form-select-option
+							>
+							<b-form-select-option :value="Short_film_Shoots"
+								>Feature/Short Film Shooting</b-form-select-option
+							>
+							<b-form-select-option :value="Farewell_Parties"
+								>Farewell Parties</b-form-select-option
+							>
+							<b-form-select-option :value="Maternity_Shoots"
+								>Maternity Shoots</b-form-select-option
+							>
+							<b-form-select-option :value="Seminers"
+								>Seminers</b-form-select-option
+							>
+							<b-form-select-option :value="festive_celebrations"
+								>Festive Celebrations[Holi, Rakhi, New Year parties etc.]</b-form-select-option
+							>
+							<b-form-select-option :value="Fashion_Shows"
+								>Fashion Shows</b-form-select-option
+							>
+							<b-form-select-option :value="Fairs"
+							>Fairs[food festival, bookfair, handicraft mela etc.]</b-form-select-option
+							>
+							<b-form-select-option :value="Indoor_Outdoor"
+								>Indoor/Outdoor Exhibitions(Painting, Photography, Handloom, Jewelry etc]</b-form-select-option
+							><b-form-select-option :value="Sport_Nights"
+								>Sport-Watching Nights</b-form-select-option
 							>
 							<b-form-select-option :value="Others"
 								>Others</b-form-select-option
@@ -131,7 +194,10 @@
 				</div>
 			</form>
 		</div>
+		
 	</div>
+
+
 </template>
 
 <script>
@@ -270,3 +336,5 @@ export default {
 	},
 };
 </script>
+
+
