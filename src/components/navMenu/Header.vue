@@ -3,7 +3,7 @@
 		<b-row style="padding: 10px 10px 0px 10px">
 			<b-col cols="4">
 				<router-link v-bind:to="{ path: mainProps.homeurl }">
-					<span class="tcsTxt">MalhaarGreens</span>
+					<b-img src="@/assets/Logo_Final.jpg" fluid></b-img>
 				</router-link>
 			</b-col>
 			<b-col align-self="end"

@@ -1,184 +1,419 @@
 <template>
-  <div style="padding: 0; height: 100%">
-    <video-background
-      :src="require(`@/assets/img/video.mp4`)"
-      style="max-height: 650px; height: 650px; width: 100%"
-      overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
-    >
-      <b-row class="">
-        <b-col>
-          <div>
-            <div style="position: relative; top: 50px; text-align: center">
-              <p style="font-size: 15px; color: #ccffcc">
-                MALHAR GREENS , KOLKATA
-              </p>
-              <p style="font-size: 15px; color: white">______</p>
-              <p style="font-size: 75px; color: #ccffcc">
-                ENJOY A LUXURY <br />
-                EXPERIENCE
-              </p>
-            </div>
+	<div style="padding: 0; height: 100%">
+		<video-background
+			:src="require(`@/assets/img/video.mp4`)"
+			style="max-height: 650px; height: 650px; width: 100%"
+			overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
+		>
+			<b-row class="">
+				<b-col>
+					<div>
+						<div
+							style="
+								position: relative;
+								top: 50px;
+								text-align: center;
+							"
+						>
+							<p style="font-size: 15px; color: #ccffcc">
+								MALHAR GREENS , KOLKATA
+							</p>
+							<p style="font-size: 15px; color: white">______</p>
+							<p style="font-size: 75px; color: #ccffcc">
+								ENJOY A LUXURY <br />
+								EXPERIENCE
+							</p>
+						</div>
 
-            <div id="booking" class="section">
-              <div class="section-center">
-                <div class="container">
-                  <div class="row">
-                    <div
-                      class="booking-form"
-                      style="width: 90%; position: relative; top: -170px"
-                    >
-                      <b-row style="margin: 0 !important">
-                        <b-col cols="4">
-                          <div class="form-header">
-                            <h2>Book Now</h2>
-                          </div>
-                        </b-col>
-                        <b-col
-                          cols="5"
-                          align-self="center"
-                          style="text-align: center"
-                        >
-                          <span class="form-label">Check In & Check Out</span>
-                          <label
-                            for=""
-                            @click="showModal = true"
-                            style="cursor: pointer"
-                            >{{showModal}} = 26 Feb, 2022 - 28 Feb, 2022
-                            <b-icon
-                              icon="calendar2-day-fill"
-                              aria-hidden="true"
-                            ></b-icon
-                          ></label>
-                        </b-col>
-                        <b-col cols="3" align-self="center">
-                          <button class="submit-btn" @click="showModal = true">
-                            Check availability
-                          </button>
-                        </b-col>
-                      </b-row>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </b-col>
-      </b-row>
-    </video-background>
-    <div style="">
-      <b-row>
-        <b-col style="height: 200px"> </b-col>
-      </b-row>
-    </div>
-    <div>
-      <div class="container section">
-        <div class="row">
-          <div class="col-md-6">
-            <h3>Malhar Greens, Kolkata</h3>
-            <p>
-              <button class="btn">
-                <i class="fa fa-home mr-2"></i>North Ramchandrapur</button
-              ><br />
-              <button class="btn">
-                <i class="fa fa-envelope mr-2"></i>abc@gmail.com</button
-              ><br />
-              <button class="btn">
-                <i class="fa fa-phone mr-2"></i> +91-0000000000</button
-              ><br />
-            </p>
-          </div>
-          <div class="col-md-6">
-            <img src="https://preview.ibb.co/erdq8p/Employee-1.jpg" alt="" />
-            <img src="https://preview.ibb.co/cu76g9/Employee-2.jpg" alt="" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <img src="https://preview.ibb.co/cu76g9/Employee-2.jpg" alt="" />
-          </div>
-          <div class="col-md-6">
-            <h3>Cutting-Edge Skill Development</h3>
-            <p>
-              GetLance Academy hosts regular, rigorous learning sessions for the
-              most in-demand skills. By presenting our elite, experienced
-              network with ongoing opportunities to update and elevate their
-              portfolios, we are able to solve pressing talent shortages while
-              ensuring success for dedicated participants.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <img src="https://preview.ibb.co/cu76g9/Employee-2.jpg" alt="" />
-          </div>
-          <div class="col-md-6">
-            <h3>Cutting-Edge Skill Development</h3>
-            <p>
-              GetLance Academy hosts regular, rigorous learning sessions for the
-              most in-demand skills. By presenting our elite, experienced
-              network with ongoing opportunities to update and elevate their
-              portfolios, we are able to solve pressing talent shortages while
-              ensuring success for dedicated participants.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <Modal v-model="showModal">
-      <p>Modal content goes here...</p>
-    </Modal>
-  </div>
+						<div id="booking" class="section">
+							<div class="section-center">
+								<div class="container">
+									<div class="row">
+										<div
+											class="booking-form"
+											style="
+												width: 90%;
+												position: relative;
+												top: -170px;
+											"
+										>
+											<b-row style="margin: 0 !important">
+												<b-col cols="4">
+													<div class="form-header">
+														<h2>Book Now</h2>
+													</div>
+												</b-col>
+												<b-col
+													cols="5"
+													align-self="center"
+													style="text-align: center"
+												>
+													<span class="form-label"
+														>Check In & Check
+														Out</span
+													>
+													<label
+														for=""
+														@click="
+															showModal = true
+														"
+														style="cursor: pointer"
+														>{{ showModal }} = 26
+														Feb, 2022 - 28 Feb, 2022
+														<b-icon
+															icon="calendar2-day-fill"
+															aria-hidden="true"
+														></b-icon
+													></label>
+												</b-col>
+												<b-col
+													cols="3"
+													align-self="center"
+												>
+													<button
+														class="submit-btn"
+														@click="
+															showModal = true
+														"
+													>
+														Check availability
+													</button>
+												</b-col>
+											</b-row>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</b-col>
+			</b-row>
+		</video-background>
+		<div>
+			<div class="container section">
+				<div class="row">
+					<div class="col-md-6">
+						<h3>Malhar Greens, Kolkata</h3>
+						<p>
+							<button class="btn">
+								<i class="fa fa-home mr-2"></i>North
+								Ramchandrapur</button
+							><br />
+							<button class="btn">
+								<i class="fa fa-envelope mr-2"></i
+								>abc@gmail.com</button
+							><br />
+							<button class="btn">
+								<i class="fa fa-phone mr-2"></i>
+								+91-0000000000</button
+							><br />
+						</p>
+					</div>
+					<div class="col-md-6">
+						<img
+							src="https://preview.ibb.co/erdq8p/Employee-1.jpg"
+							alt=""
+						/>
+						<img
+							src="https://preview.ibb.co/cu76g9/Employee-2.jpg"
+							alt=""
+						/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<img
+							src="https://preview.ibb.co/cu76g9/Employee-2.jpg"
+							alt=""
+						/>
+					</div>
+					<div class="col-md-6">
+						<h3>Cutting-Edge Skill Development</h3>
+						<p>
+							GetLance Academy hosts regular, rigorous learning
+							sessions for the most in-demand skills. By
+							presenting our elite, experienced network with
+							ongoing opportunities to update and elevate their
+							portfolios, we are able to solve pressing talent
+							shortages while ensuring success for dedicated
+							participants.
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<img
+							src="https://preview.ibb.co/cu76g9/Employee-2.jpg"
+							alt=""
+						/>
+					</div>
+					<div class="col-md-6">
+						<h3>Cutting-Edge Skill Development</h3>
+						<p>
+							GetLance Academy hosts regular, rigorous learning
+							sessions for the most in-demand skills. By
+							presenting our elite, experienced network with
+							ongoing opportunities to update and elevate their
+							portfolios, we are able to solve pressing talent
+							shortages while ensuring success for dedicated
+							participants.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<Modal v-model="showModal">
+			<b-row>
+				<b-col cols="1"> From: </b-col>
+				<b-col cols="5">
+					<b-form-datepicker
+						id="fromDate"
+						v-model="fromDate"
+						class="mb-2"
+					></b-form-datepicker
+				></b-col>
+				<b-col cols="1"> To: </b-col>
+				<b-col cols="5">
+					<b-form-datepicker
+						id="toDate"
+						v-model="toDate"
+						class="mb-2"
+					></b-form-datepicker>
+				</b-col>
+			</b-row>
+			<b-row>
+				<b-col>
+					<b-tabs card>
+						<!-- Render Tabs, supply a unique `key` to each tab -->
+						<b-tab
+							v-for="(val, i) in tabs"
+							:key="'room-' + i"
+							:title="'Room ' + parseInt(i + 1)"
+							style="text-transform: uppercase"
+						>
+							<b-row>
+								<b-col
+									style="
+										border-right: solid 2px #e0dfdf !important;
+									"
+								>
+									<b-row>
+										<b-col align-self="center">
+											Adults
+										</b-col>
+										<b-col style="text-align: right">
+											<b-icon
+												:icon="
+													adultCount === 1
+														? 'dash-circle'
+														: 'dash-circle-fill'
+												"
+												id="minusAdult"
+												class="minusAdult"
+												@click="
+													minusAdultChild(
+														i,
+														'adultCount'
+													)
+												"
+												aria-hidden="true"
+											></b-icon>
+											<span
+												:id="'adultCount_' + i"
+												class="addedAdult"
+												>{{ adultCount }}</span
+											>
+											<b-icon
+												icon="plus-circle-fill"
+												class="addAdult"
+												@click="
+													addAdultChild(
+														i,
+														'adultCount'
+													)
+												"
+												aria-hidden="true"
+											></b-icon>
+										</b-col>
+									</b-row>
+								</b-col>
+								<b-col>
+									<b-row>
+										<b-col align-self="center">
+											CHILDREN (AGE: 0-12)
+										</b-col>
+										<b-col style="text-align: right">
+											<b-icon
+												:icon="
+													childCount === 1
+														? 'dash-circle'
+														: 'dash-circle-fill'
+												"
+												id="minusAdult"
+												class="minusAdult"
+												@click="
+													minusAdultChild(
+														i,
+														'childCount'
+													)
+												"
+												aria-hidden="true"
+											></b-icon>
+											<span
+												:id="'childCount_' + i"
+												class="addedAdult"
+												>{{ childCount }}</span
+											>
+											<b-icon
+												icon="plus-circle-fill"
+												class="addAdult"
+												@click="
+													addAdultChild(
+														i,
+														'childCount'
+													)
+												"
+												aria-hidden="true"
+											></b-icon>
+										</b-col>
+									</b-row>
+								</b-col>
+							</b-row>
+							<b-row>
+								<b-col v-if="i !== 0" style="padding-top: 15px">
+									<b-button
+										size="sm"
+										variant="danger"
+										class="float-right"
+										@click="closeTab(i)"
+									>
+										Close This Room
+									</b-button>
+								</b-col>
+							</b-row>
+						</b-tab>
+
+						<!-- New Tab Button (Using tabs-end slot) -->
+						<template #tabs-end>
+							<b-nav-item
+								role="presentation"
+								@click.prevent="newTab"
+								href="#"
+								><b>+</b></b-nav-item
+							>
+						</template>
+					</b-tabs>
+				</b-col>
+			</b-row>
+			<b-row>
+				<b-col>
+					<b-form-input id="promo" type="text"></b-form-input>
+				</b-col>
+				<b-col style="text-align: right" align-self="center">
+					{{ showCorporateText }}
+					<span
+						v-if="!showCorporateInputType"
+						style="font-size: 16px; cursor: pointer"
+						@click="showCorporateInputFunc"
+						>Click Here!</span
+					>
+				</b-col>
+
+				<b-col v-if="showCorporateInputType">
+					<b-form-input
+						placeholder="Rate Code"
+						id="promoRateCode"
+						type="text"
+					></b-form-input>
+				</b-col>
+				<b-col style="height: 40px" v-if="showCorporateInputType">
+					<b-form-input
+						placeholder="Agency Id"
+						id="promoAgencyId"
+						type="text"
+						style="width: 80%"
+					></b-form-input>
+					<b-icon
+						style="position: relative; bottom: 30px; left: 200px"
+						icon="dash-circle-fill"
+						id="minusAdult"
+						class="minusAdult"
+						@click="showCorporateInputFunc"
+						aria-hidden="true"
+					></b-icon>
+				</b-col>
+			</b-row>
+			<b-row>
+				<b-col></b-col>
+				<b-col></b-col>
+			</b-row>
+		</Modal>
+	</div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      slide: 0,
-      showModal: false,
-      sliding: null,
-      dateTime: null,
-      disabledDates: ["2022-01-25", "2022-01-27"],
-      disabledHours: ["2022-01-25", "2022-01-27"],
-      minDate: "",
-    };
-  },
-  mounted() {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-    var yyyy = today.getFullYear();
-    this.minDate = yyyy + "-" + mm + "-" + dd;
-  },
-  methods: {
-    onSlideStart() {
-      this.sliding = true;
-    },
-    onSlideEnd() {
-      this.sliding = false;
-    },
-    getImgUrl: function (imagePath) {
-      console.log("@/assets/img/======" + imagePath);
-      return require("@/assets/img/" + imagePath);
-    },
-    callPopForDate() {
-      let htmlCont =
-        '<div id="cstmPopUPContent">' +
-        'Check In : <input id="chkInDate" type="date">' +
-        'Check Out : <input id="chkOutDate" type="date"><br/>' +
-        "test";
-      ("</div>");
-      alert(htmlCont);
-      this.$fire({
-        title: "<strong></strong>",
-        icon: "info",
-        width: 900,
-        html: htmlCont,
-        showCloseButton: true,
-        showCancelButton: true,
-        focusConfirm: false,
-      });
-    },
-  },
+	data() {
+		return {
+			slide: 0,
+			tabCounter: 0,
+			showCorporateInputType: false,
+			showCorporateText: "",
+			tabs: [],
+			adultCount: 1,
+			childCount: 1,
+			showModal: false,
+			fromDate: "",
+			toDate: "",
+		};
+	},
+	beforeMount() {
+		this.tabs.push(this.tabCounter++);
+	},
+	mounted() {
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, "0");
+		var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+		var yyyy = today.getFullYear();
+		this.minDate = yyyy + "-" + mm + "-" + dd;
+	},
+	methods: {
+		getImgUrl: function (imagePath) {
+			return require("@/assets/img/" + imagePath);
+		},
+		closeTab(x) {
+			alert(x);
+			if (this.tabs.length > 1) {
+				for (let i = 0; i < this.tabs.length; i++) {
+					if (this.tabs[i] === x) {
+						this.tabs.splice(i, 1);
+						this.tabCounter--;
+					}
+				}
+			}
+		},
+		newTab() {
+			this.tabs.push(this.tabCounter++);
+		},
+		addAdultChild(callFromTab, addFor) {
+			let elem = document.getElementById(addFor + "_" + callFromTab);
+			elem.innerHTML = parseInt(elem.innerHTML) + 1;
+		},
+		minusAdultChild(callFromTab, lessFor) {
+			let elem = document.getElementById(lessFor + "_" + callFromTab);
+			if (parseInt(elem.innerHTML) > 1) {
+				elem.innerHTML = parseInt(elem.innerHTML) - 1;
+			}
+		},
+		showCorporateInputFunc() {
+			if (this.showCorporateInputType) {
+				this.showCorporateInputType = false;
+				this.showCorporateText = "Add Corporate Info";
+			} else {
+				this.showCorporateInputType = true;
+				this.showCorporateText = "Corporate Info:";
+			}
+		},
+	},
 };
 </script>
