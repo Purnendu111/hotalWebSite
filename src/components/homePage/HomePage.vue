@@ -32,7 +32,7 @@
 										<div
 											class="booking-form"
 											style="
-												width: 90%;
+												width: 100%;
 												position: relative;
 												top: -170px;
 											"
