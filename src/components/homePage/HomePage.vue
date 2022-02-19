@@ -58,8 +58,8 @@
 															showModal = true
 														"
 														style="cursor: pointer"
-														>{{ showModal }} = 26
-														Feb, 2022 - 28 Feb, 2022
+														>26 Feb, 2022 - 28 Feb,
+														2022
 														<b-icon
 															icon="calendar2-day-fill"
 															aria-hidden="true"
