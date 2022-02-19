@@ -169,6 +169,12 @@
 					<b-form-datepicker
 						id="fromDate"
 						v-model="fromDate"
+						:min="min"
+						:date-format-options="{
+							year: 'numeric',
+							month: 'short',
+							day: '2-digit',
+						}"
 						class="mb-2"
 					></b-form-datepicker
 				></b-col>
@@ -176,7 +182,13 @@
 				<b-col cols="5">
 					<b-form-datepicker
 						id="toDate"
+						:min="min"
 						v-model="toDate"
+						:date-format-options="{
+							year: 'numeric',
+							month: 'numeric',
+							day: 'numeric',
+						}"
 						class="mb-2"
 					></b-form-datepicker>
 				</b-col>
@@ -220,7 +232,7 @@
 											></b-icon>
 											<span
 												:id="'adultCount_' + i"
-												class="addedAdult"
+												class="addedAdult gstCount"
 												>{{ adultCount }}</span
 											>
 											<b-icon
@@ -242,7 +254,12 @@
 										<b-col align-self="center">
 											CHILDREN (AGE: 0-12)
 										</b-col>
-										<b-col style="text-align: right">
+										<b-col
+											style="
+												text-align: right;
+												padding: 0;
+											"
+										>
 											<b-icon
 												:icon="
 													childCount === 1
@@ -261,7 +278,7 @@
 											></b-icon>
 											<span
 												:id="'childCount_' + i"
-												class="addedAdult"
+												class="addedAdult gstCount"
 												>{{ childCount }}</span
 											>
 											<b-icon
@@ -280,7 +297,10 @@
 								</b-col>
 							</b-row>
 							<b-row>
-								<b-col v-if="i !== 0" style="padding-top: 15px">
+								<b-col
+									v-if="tabs.length > 1"
+									style="padding-top: 15px"
+								>
 									<b-button
 										size="sm"
 										variant="danger"
@@ -305,7 +325,7 @@
 					</b-tabs>
 				</b-col>
 			</b-row>
-			<b-row>
+			<b-row style="padding-top: 20px">
 				<b-col>
 					<b-form-input id="promo" type="text"></b-form-input>
 				</b-col>
@@ -313,7 +333,11 @@
 					{{ showCorporateText }}
 					<span
 						v-if="!showCorporateInputType"
-						style="font-size: 16px; cursor: pointer"
+						style="
+							font-size: 16px;
+							cursor: pointer;
+							font-weight: bold;
+						"
 						@click="showCorporateInputFunc"
 						>Click Here!</span
 					>
@@ -343,9 +367,16 @@
 					></b-icon>
 				</b-col>
 			</b-row>
-			<b-row>
-				<b-col></b-col>
-				<b-col></b-col>
+			<b-row style="padding-top: 60px">
+				<b-col align-self="center"
+					><span v-if="fromDate !== '' && toDate !== ''"
+						>{{ fromDate }} - {{ toDate }} |
+					</span>
+					{{ tabs.length }} Rooms | {{ totalGstCount }} Guest</b-col
+				>
+				<b-col style="text-align: right">
+					<button class="chkAbl">Check availability</button>
+				</b-col>
 			</b-row>
 		</Modal>
 	</div>
@@ -354,17 +385,25 @@
 <script>
 export default {
 	data() {
+		// const now = new Date();
+		// const today = new Date(
+		// 	now.getFullYear(),
+		// 	now.getMonth(),
+		// 	now.getDate()
+		// );
 		return {
 			slide: 0,
 			tabCounter: 0,
 			showCorporateInputType: false,
-			showCorporateText: "",
+			showCorporateText: "Add Corporate Info",
 			tabs: [],
 			adultCount: 1,
-			childCount: 1,
+			childCount: 0,
 			showModal: false,
 			fromDate: "",
 			toDate: "",
+			min: new Date(),
+			totalGstCount: 1,
 		};
 	},
 	beforeMount() {
@@ -382,7 +421,6 @@ export default {
 			return require("@/assets/img/" + imagePath);
 		},
 		closeTab(x) {
-			alert(x);
 			if (this.tabs.length > 1) {
 				for (let i = 0; i < this.tabs.length; i++) {
 					if (this.tabs[i] === x) {
@@ -390,20 +428,46 @@ export default {
 						this.tabCounter--;
 					}
 				}
+				let elem1 = document.getElementsByClassName("gstCount"),
+					count = 0;
+				elem1.forEach((element) => {
+					count = count + parseInt(element.innerHTML);
+				});
+				this.totalGstCount = count;
 			}
 		},
 		newTab() {
 			this.tabs.push(this.tabCounter++);
+			this.totalGstCount++;
 		},
 		addAdultChild(callFromTab, addFor) {
 			let elem = document.getElementById(addFor + "_" + callFromTab);
 			elem.innerHTML = parseInt(elem.innerHTML) + 1;
+			let elem1 = document.getElementsByClassName("gstCount"),
+				count = 0;
+
+			elem1.forEach((element) => {
+				count = count + parseInt(element.innerHTML);
+			});
+			this.totalGstCount = count;
 		},
 		minusAdultChild(callFromTab, lessFor) {
 			let elem = document.getElementById(lessFor + "_" + callFromTab);
-			if (parseInt(elem.innerHTML) > 1) {
-				elem.innerHTML = parseInt(elem.innerHTML) - 1;
+			if (lessFor == "childCount") {
+				if (parseInt(elem.innerHTML) > 0) {
+					elem.innerHTML = parseInt(elem.innerHTML) - 1;
+				}
+			} else {
+				if (parseInt(elem.innerHTML) > 1) {
+					elem.innerHTML = parseInt(elem.innerHTML) - 1;
+				}
 			}
+			let elem1 = document.getElementsByClassName("gstCount"),
+				count = 0;
+			elem1.forEach((element) => {
+				count = count + parseInt(element.innerHTML);
+			});
+			this.totalGstCount = count;
 		},
 		showCorporateInputFunc() {
 			if (this.showCorporateInputType) {
