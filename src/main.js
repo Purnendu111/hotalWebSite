@@ -10,6 +10,7 @@ import VueSession from 'vue-session';
 import VideoBackground from 'vue-responsive-video-background-player';
 
 Vue.component('video-background', VideoBackground);
+import 'vue2-daterange-picker/dist/vue2-daterange-picker.css';
 
 // User Related
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,7 +22,7 @@ import { IconsPlugin } from 'bootstrap-vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 // import '@fortawesome/fontawesome-free/css/all.css'
 // import '@fortawesome/fontawesome-free/js/all.js'
-import store from './store';
+import store from './store/index';
 import Vuex from 'vuex';
 // import './axios';
 import VueTreeNavigation from 'vue-tree-navigation';
@@ -29,8 +30,8 @@ import loading from 'vuejs-loading-screen';
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 
-import VueModal from '@kouts/vue-modal'
-import '@kouts/vue-modal/dist/vue-modal.css'
+import VueModal from '@kouts/vue-modal';
+import '@kouts/vue-modal/dist/vue-modal.css';
 
 // DataTable Import with components
 import 'datatables.net-bs4';
@@ -86,7 +87,7 @@ new Vue({
 
 Vue.use(Vuex);
 
-Vue.component('Modal', VueModal)
+Vue.component('Modal', VueModal);
 
 Vue.prototype.cartValue = '3';
 Vue.use(require('vue-resource'));

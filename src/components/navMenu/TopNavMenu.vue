@@ -7,8 +7,8 @@
 			<b-navbar-brand href="/">
 				<b-img
 					:src="getImgUrl('Logo_Final.jpg')"
-					height="60"
-					width="120"
+					height="55"
+					width="110"
 					fluid
 				></b-img>
 			</b-navbar-brand>

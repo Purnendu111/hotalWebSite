@@ -90,7 +90,7 @@
 			</b-row>
 		</video-background>
 		<div>
-			<div class="container section">
+			<div class="container section" style="height: auto !important">
 				<div class="row">
 					<div class="col-md-6">
 						<h3>Malhar Greens, Kolkata</h3>
@@ -162,35 +162,11 @@
 				</div>
 			</div>
 		</div>
-		<Modal v-model="showModal">
+		<Modal v-model="showModal" v-if="showModal">
 			<b-row>
-				<b-col cols="1"> From: </b-col>
-				<b-col cols="5">
-					<b-form-datepicker
-						id="fromDate"
-						v-model="fromDate"
-						:min="min"
-						:date-format-options="{
-							year: 'numeric',
-							month: 'short',
-							day: '2-digit',
-						}"
-						class="mb-2"
-					></b-form-datepicker
-				></b-col>
-				<b-col cols="1"> To: </b-col>
-				<b-col cols="5">
-					<b-form-datepicker
-						id="toDate"
-						:min="min"
-						v-model="toDate"
-						:date-format-options="{
-							year: 'numeric',
-							month: 'numeric',
-							day: 'numeric',
-						}"
-						class="mb-2"
-					></b-form-datepicker>
+				<b-col cols="2"> Select Range </b-col>
+				<b-col cols="9">
+					<DateRangePicker />
 				</b-col>
 			</b-row>
 			<b-row>
@@ -369,9 +345,7 @@
 			</b-row>
 			<b-row style="padding-top: 60px">
 				<b-col align-self="center"
-					><span v-if="fromDate !== '' && toDate !== ''"
-						>{{ fromDate }} - {{ toDate }} |
-					</span>
+					><span>{{ fromDate }} - {{ toDate }} | </span>
 					{{ tabs.length }} Rooms | {{ totalGstCount }} Guest</b-col
 				>
 				<b-col style="text-align: right">
@@ -379,11 +353,24 @@
 				</b-col>
 			</b-row>
 		</Modal>
+		<footerComp />
 	</div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+import DateRangePicker from "../ExtraComponents/dateRangePickerComp.vue";
+
+import footerComp from "../ExtraComponents/footer.vue";
 export default {
+	components: { DateRangePicker, footerComp },
+	filters: {
+		date(value) {
+			if (!value) return "";
+			let options = { year: "numeric", month: "long", day: "numeric" };
+			return Intl.DateTimeFormat("en-US", options).format(value);
+		},
+	},
 	data() {
 		// const now = new Date();
 		// const today = new Date(
@@ -406,15 +393,25 @@ export default {
 			totalGstCount: 1,
 		};
 	},
+	computed: {
+		...mapState({
+			dateRange: "dateRange",
+		}),
+	},
 	beforeMount() {
 		this.tabs.push(this.tabCounter++);
 	},
 	mounted() {
-		var today = new Date();
-		var dd = String(today.getDate()).padStart(2, "0");
-		var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-		var yyyy = today.getFullYear();
-		this.minDate = yyyy + "-" + mm + "-" + dd;
+		var startDate = this.dateRange.startDate;
+		var dd1 = String(startDate.getDate()).padStart(2, "0");
+		var mm1 = String(startDate.getMonth() + 1).padStart(2, "0"); //January is 0!
+		var yyyy1 = startDate.getFullYear();
+		this.fromDate = yyyy1 + "-" + mm1 + "-" + dd1;
+		var endDate = this.dateRange.endDate;
+		var dd2 = String(endDate.getDate()).padStart(2, "0");
+		var mm2 = String(endDate.getMonth() + 1).padStart(2, "0"); //January is 0!
+		var yyyy2 = endDate.getFullYear();
+		this.toDate = yyyy2 + "-" + mm2 + "-" + dd2;
 	},
 	methods: {
 		getImgUrl: function (imagePath) {
@@ -436,6 +433,11 @@ export default {
 				this.totalGstCount = count;
 			}
 		},
+		// dateFormat(classes) {
+		// 	// if (!classes.disabled) {
+		// 	// }
+		// 	// return classes;
+		// },
 		newTab() {
 			this.tabs.push(this.tabCounter++);
 			this.totalGstCount++;

@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<div id="navDivContainer" class="navDivContainer">
-				<TopNavMenu />
+			<TopNavMenu />
 		</div>
 		<div id="bodyContainer" class="bodyContainer">
 			<router-view></router-view>
@@ -17,8 +17,6 @@ export default {
 	name: "App",
 	components: {
 		TopNavMenu,
-		//Header,
-		// CartDetails,
 	},
 	created() {
 		window.bus.$on("menu/toggle", () => {
@@ -67,7 +65,7 @@ export default {
 				navDivContainerHt =
 					document.getElementById("navDivContainer").offsetHeight;
 			document.getElementById("bodyContainer").style.height =
-				parseFloat(h) - parseFloat(navDivContainerHt) - 10 + "px";
+				parseFloat(h) - parseFloat(navDivContainerHt) + "px";
 		},
 	},
 };
