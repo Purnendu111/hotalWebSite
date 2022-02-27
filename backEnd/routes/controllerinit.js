@@ -14,7 +14,6 @@ const {
 //@access public
 
 exports.getRooms = (req, res, next) => {
-  console.log('call');
   getRooms(req, res, next);
 };
 

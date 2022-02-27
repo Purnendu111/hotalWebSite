@@ -54,12 +54,10 @@
 													>
 													<label
 														for=""
-														@click="
-															showModal = true
-														"
+														v-b-modal.chkAvailable
 														style="cursor: pointer"
-														>26 Feb, 2022 - 28 Feb,
-														2022
+														>{{ fromDate }} -
+														{{ toDate }}
 														<b-icon
 															icon="calendar2-day-fill"
 															aria-hidden="true"
@@ -72,9 +70,7 @@
 												>
 													<button
 														class="submit-btn"
-														@click="
-															showModal = true
-														"
+														v-b-modal.chkAvailable
 													>
 														Check availability
 													</button>
@@ -91,8 +87,8 @@
 		</video-background>
 		<div>
 			<div class="container section" style="height: auto !important">
-				<div class="row">
-					<div class="col-md-6">
+				<b-row class="sectionRow">
+					<b-col>
 						<h3>Malhar Greens, Kolkata</h3>
 						<p>
 							<button class="btn">
@@ -108,18 +104,58 @@
 								+91-0000000000</button
 							><br />
 						</p>
-					</div>
-					<div class="col-md-6">
-						<img
-							src="https://preview.ibb.co/erdq8p/Employee-1.jpg"
-							alt=""
-						/>
-						<img
-							src="https://preview.ibb.co/cu76g9/Employee-2.jpg"
-							alt=""
-						/>
-					</div>
-				</div>
+					</b-col>
+					<b-col>
+						<b-row>
+							<b-col>
+								<img
+									src="https://preview.ibb.co/erdq8p/Employee-1.jpg"
+									style="width: 100%; height: 200px"
+									alt=""
+								/>
+							</b-col>
+							<b-col>
+								<img
+									src="https://preview.ibb.co/cu76g9/Employee-2.jpg"
+									style="width: 100%; height: 200px"
+									alt=""
+								/>
+							</b-col>
+						</b-row>
+					</b-col>
+				</b-row>
+				<b-row class="sectionRow">
+					<b-col>
+						<b-row>
+							<b-col>
+								<img
+									src="https://preview.ibb.co/erdq8p/Employee-1.jpg"
+									style="width: 100%; height: 200px"
+									alt=""
+								/>
+							</b-col>
+							<b-col>
+								<img
+									src="https://preview.ibb.co/cu76g9/Employee-2.jpg"
+									style="width: 100%; height: 200px"
+									alt=""
+								/>
+							</b-col>
+						</b-row>
+					</b-col>
+					<b-col>
+						<h3>Cutting-Edge Skill Development</h3>
+						<p>
+							GetLance Academy hosts regular, rigorous learning
+							sessions for the most in-demand skills. By
+							presenting our elite, experienced network with
+							ongoing opportunities to update and elevate their
+							portfolios, we are able to solve pressing talent
+							shortages while ensuring success for dedicated
+							participants.
+						</p>
+					</b-col>
+				</b-row>
 				<div class="row">
 					<div class="col-md-6">
 						<img
@@ -162,7 +198,7 @@
 				</div>
 			</div>
 		</div>
-		<Modal v-model="showModal" v-if="showModal">
+		<b-modal id="chkAvailable" centered size="xl" title="">
 			<b-row>
 				<b-col cols="1"> From: </b-col>
 				<b-col cols="5">
@@ -188,8 +224,8 @@
 						@input="dateRangeCal"
 						:date-format-options="{
 							year: 'numeric',
-							month: 'numeric',
-							day: 'numeric',
+							month: 'short',
+							day: '2-digit',
 						}"
 						class="mb-2"
 					></b-form-datepicker>
@@ -235,7 +271,7 @@
 											<span
 												:id="'adultCount_' + i"
 												class="addedAdult gstCount"
-												>{{ adultCount }}</span
+												>1</span
 											>
 											<b-icon
 												icon="plus-circle-fill"
@@ -281,7 +317,7 @@
 											<span
 												:id="'childCount_' + i"
 												class="addedAdult gstCount"
-												>{{ childCount }}</span
+												>0</span
 											>
 											<b-icon
 												icon="plus-circle-fill"
@@ -369,16 +405,21 @@
 					></b-icon>
 				</b-col>
 			</b-row>
-			<b-row style="padding-top: 60px">
-				<b-col align-self="center"
-					><span>{{ fromDate }} - {{ toDate }} | </span>
-					{{ tabs.length }} Rooms | {{ totalGstCount }} Guest</b-col
-				>
-				<b-col style="text-align: right">
-					<button class="chkAbl">Check availability</button>
-				</b-col>
-			</b-row>
-		</Modal>
+			<template #modal-footer="{}">
+				<b-row style="padding-top: 60px; width: 100%">
+					<b-col align-self="center"
+						><span>{{ fromDate }} - {{ toDate }} | </span>
+						{{ tabs.length }} Rooms |
+						{{ totalGstCount }} Guest</b-col
+					>
+					<b-col style="text-align: right">
+						<button @click="chkAvalibility" class="chkAbl">
+							Check availability
+						</button>
+					</b-col>
+				</b-row>
+			</template>
+		</b-modal>
 		<footerComp />
 	</div>
 </template>
@@ -411,12 +452,18 @@ export default {
 			adultCount: 1,
 			childCount: 0,
 			showModal: false,
-			fromDate: "",
-			toDate: "",
+			fromDate: new Date(),
+			toDate: new Date(),
 			minFrom: new Date(),
 			minTo: new Date(),
 			totalGstCount: 1,
 			dateArray: [],
+			oldDateData: [
+				"2022-03-02",
+				"2022-03-03",
+				"2022-03-05",
+				"2022-03-09",
+			],
 		};
 	},
 	computed: {
@@ -433,10 +480,11 @@ export default {
 		var mm1 = String(startDate.getMonth() + 1).padStart(2, "0"); //January is 0!
 		var yyyy1 = startDate.getFullYear();
 		this.minTo = yyyy1 + "-" + mm1 + "-" + dd1;
+		this.fromDate = yyyy1 + "-" + mm1 + "-" + (parseInt(dd1) - 1);
+		this.toDate = yyyy1 + "-" + mm1 + "-" + dd1;
 	},
 	methods: {
 		dateRangeCal() {
-			alert("1111");
 			let steps = 1;
 			this.dateArray = [];
 			let currentDate = new Date(this.fromDate);
@@ -448,6 +496,29 @@ export default {
 			}
 
 			console.log(this.dateArray);
+		},
+		chkAvalibility() {
+			let count = 0;
+			this.oldDateData.forEach((data) => {
+				this.dateArray.forEach((data1) => {
+					if (new Date(data).getTime() == new Date(data1).getTime()) {
+						count++;
+					}
+				});
+			});
+			if (count != 0) {
+				this.showModal = false;
+				this.$fire({
+					type: "error",
+					title: "Slot is not available to the given date Range",
+					showConfirmButton: false,
+					timer: 2000,
+				}).then(() => {
+					// this.$router.push({
+					// 	path: "/successpage",
+					// });
+				});
+			}
 		},
 		getImgUrl: function (imagePath) {
 			return require("@/assets/img/" + imagePath);
