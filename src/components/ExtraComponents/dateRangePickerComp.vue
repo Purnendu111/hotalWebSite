@@ -94,33 +94,33 @@ export default {
 				"yyyy-mm-dd"
 			);
 		},
-		dateFormat(classes, date) {
-			// let yesterday = new Date();
-			let d1 = new Date(date),
-				today =
-					d1.getFullYear() +
-					"-" +
-					(parseInt(d1.getMonth()) + 1 < 10
-						? "0" + parseInt(d1.getMonth() + 1)
-						: parseInt(d1.getMonth()) + 1) +
-					"-" +
-					d1.getDay();
-			console.log(today);
-			let a = ["2022-02-28", "2022-03-2", "2022-03-5"];
-			a.forEach((element) => {
-				console.log(today + "===" + element);
-				console.log(today == element);
-				if (!classes.disabled) {
-					classes.disabled = today == element;
-				}
-			});
-			console.log(classes);
-			return classes;
-			// if (!classes.disabled) {
-			// 	classes.disabled = d1 === d2;
-			// }
-			// return classes;
-		},
+		// dateFormat(classes, date) {
+		// 	// let yesterday = new Date();
+		// 	// let d1 = new Date(date),
+		// 	// 	today =
+		// 	// 		d1.getFullYear() +
+		// 	// 		"-" +
+		// 	// 		(parseInt(d1.getMonth()) + 1 < 10
+		// 	// 			? "0" + parseInt(d1.getMonth() + 1)
+		// 	// 			: parseInt(d1.getMonth()) + 1) +
+		// 	// 		"-" +
+		// 	// 		d1.getDay();
+		// 	// console.log(today);
+		// 	// let a = ["2022-02-28", "2022-03-2", "2022-03-5"];
+		// 	// a.forEach((element) => {
+		// 	// 	console.log(today + "===" + element);
+		// 	// 	console.log(today == element);
+		// 	// 	if (!classes.disabled) {
+		// 	// 		classes.disabled = today == element;
+		// 	// 	}
+		// 	// });
+		// 	// console.log(classes);
+		// 	return classes;
+		// 	// if (!classes.disabled) {
+		// 	// 	classes.disabled = d1 === d2;
+		// 	// }
+		// 	// return classes;
+		// },
 	},
 };
 </script>

@@ -164,9 +164,35 @@
 		</div>
 		<Modal v-model="showModal" v-if="showModal">
 			<b-row>
-				<b-col cols="2"> Select Range </b-col>
-				<b-col cols="9">
-					<DateRangePicker />
+				<b-col cols="1"> From: </b-col>
+				<b-col cols="5">
+					<b-form-datepicker
+						id="fromDate"
+						v-model="fromDate"
+						:min="minFrom"
+						@input="dateRangeCal"
+						:date-format-options="{
+							year: 'numeric',
+							month: 'short',
+							day: '2-digit',
+						}"
+						class="mb-2"
+					></b-form-datepicker
+				></b-col>
+				<b-col cols="1"> To: </b-col>
+				<b-col cols="5">
+					<b-form-datepicker
+						id="toDate"
+						:min="minTo"
+						v-model="toDate"
+						@input="dateRangeCal"
+						:date-format-options="{
+							year: 'numeric',
+							month: 'numeric',
+							day: 'numeric',
+						}"
+						class="mb-2"
+					></b-form-datepicker>
 				</b-col>
 			</b-row>
 			<b-row>
@@ -359,11 +385,10 @@
 
 <script>
 import { mapState } from "vuex";
-import DateRangePicker from "../ExtraComponents/dateRangePickerComp.vue";
 
 import footerComp from "../ExtraComponents/footer.vue";
 export default {
-	components: { DateRangePicker, footerComp },
+	components: { footerComp },
 	filters: {
 		date(value) {
 			if (!value) return "";
@@ -379,7 +404,6 @@ export default {
 		// 	now.getDate()
 		// );
 		return {
-			slide: 0,
 			tabCounter: 0,
 			showCorporateInputType: false,
 			showCorporateText: "Add Corporate Info",
@@ -389,31 +413,42 @@ export default {
 			showModal: false,
 			fromDate: "",
 			toDate: "",
-			min: new Date(),
+			minFrom: new Date(),
+			minTo: new Date(),
 			totalGstCount: 1,
+			dateArray: [],
 		};
 	},
 	computed: {
 		...mapState({
-			dateRange: "dateRange",
+			// dateRange: "dateRange",
 		}),
 	},
 	beforeMount() {
 		this.tabs.push(this.tabCounter++);
 	},
 	mounted() {
-		var startDate = this.dateRange.startDate;
-		var dd1 = String(startDate.getDate()).padStart(2, "0");
+		var startDate = this.minTo;
+		var dd1 = parseInt(String(startDate.getDate()).padStart(2, "0")) + 1;
 		var mm1 = String(startDate.getMonth() + 1).padStart(2, "0"); //January is 0!
 		var yyyy1 = startDate.getFullYear();
-		this.fromDate = yyyy1 + "-" + mm1 + "-" + dd1;
-		var endDate = this.dateRange.endDate;
-		var dd2 = String(endDate.getDate()).padStart(2, "0");
-		var mm2 = String(endDate.getMonth() + 1).padStart(2, "0"); //January is 0!
-		var yyyy2 = endDate.getFullYear();
-		this.toDate = yyyy2 + "-" + mm2 + "-" + dd2;
+		this.minTo = yyyy1 + "-" + mm1 + "-" + dd1;
 	},
 	methods: {
+		dateRangeCal() {
+			alert("1111");
+			let steps = 1;
+			this.dateArray = [];
+			let currentDate = new Date(this.fromDate);
+
+			while (currentDate <= new Date(this.toDate)) {
+				this.dateArray.push(new Date(currentDate));
+				// Use UTC date to prevent problems with time zones and DST
+				currentDate.setUTCDate(currentDate.getUTCDate() + steps);
+			}
+
+			console.log(this.dateArray);
+		},
 		getImgUrl: function (imagePath) {
 			return require("@/assets/img/" + imagePath);
 		},
