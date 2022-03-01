@@ -89,21 +89,63 @@
 			<div class="container section" style="height: auto !important">
 				<b-row class="sectionRow">
 					<b-col>
-						<h3>Malhar Greens, Kolkata</h3>
+						<h3>Malhar Greens, Kolkata</h3><hr>
 						<p>
+							Malhar is an ideal location to celebrate your specials functions and important gatherings.<br>
+ Nestled amidst the lush green orchard of Teak, Coconut, Lichie,  Cardamom and Sal trees, it provides the much needed cucoon of nature, very close to the city but far from its hustle-bustle. Just a 10min drive from KamalGazi Metro station, you can reach this property at ease through public and private conveyance. It houses a floating stage where you can host parties and events.
+							
+							<br><br>
 							<button class="btn">
-								<i class="fa fa-home mr-2"></i>North
-								Ramchandrapur</button
+								<i class="fa fa-map-marker mr-2"></i>Ramchandrapur (N),
+S. N. Ghosh Avenue
+Beside Ekta Sangha club (opposite road of S.N. Medical),
+P.O. Narendrapur,
+Kolkata 700103</button
 							><br />
 							<button class="btn">
 								<i class="fa fa-envelope mr-2"></i
-								>abc@gmail.com</button
+								>malhargreens@gmail.com</button
 							><br />
 							<button class="btn">
 								<i class="fa fa-phone mr-2"></i>
-								+91-0000000000</button
-							><br />
+								+91-9051914005</button
+							>
+							
 						</p>
+						<p style="font-size:20px ; font-weight: bold;color: #004085;">Hotel Highlights<br>
+						<hr>
+							<button class="btn">
+								<i class="fa fa-map-marker mr-2"></i>
+								<small>Close to the city but far from its hustle-bustle</small></button
+							><br />
+							<button class="btn">
+								<i class="fa fa-cutlery mr-2"></i>
+								<small>Beautiful Banquet spaces for Weddings & Events</small></button
+							><br />
+							<button class="btn">
+								<i class="fa fa-camera mr-2"></i>
+								<small>Amazing location for shoots</small></button
+							><br />
+							<button class="btn">
+								<i class="fa fa-home mr-2"></i>
+								<small>vintage- styled house with modern amnesties</small></button
+							>
+						
+						
+						<p>
+						<p style="font-size:20px ; font-weight: bold;color: #004085;">Hotel Policies</p>
+						<hr>
+						<small>Check-in from 11:00 PM<br>
+						Check-out till 12:00 PM<br>
+						Early Check in and late check-out on request at additional charge<br>
+						We accept VISA, Mastercard, Rupay, AMEX, Razorpay, Bank Transfer (RTGS, NEFT, IMPS)<br>
+						Kids’ stay is free, up to the age of 12 years<br>
+						Group discounts are available<br>
+						Pets are allowed.<br>
+						</small>
+						
+						
+
 					</b-col>
 					<b-col>
 						<b-row>
@@ -144,7 +186,9 @@
 						</b-row>
 					</b-col>
 					<b-col>
-						<h3>Cutting-Edge Skill Development</h3>
+						<h3>Guest Rooms</h3>
+						<hr style="width:35%;height:2px;border-width:0;color:gray;background-color:gray">
+
 						<p>
 							GetLance Academy hosts regular, rigorous learning
 							sessions for the most in-demand skills. By
@@ -157,45 +201,27 @@
 					</b-col>
 				</b-row>
 				<div class="row">
+					
+					<div class="col-md-6">
+						<h3>Location</h3>
+						<hr style="width:25%;height:3px;border-width:0;color:gray;background-color:gray">
+						<p>
+							Malhar Greens<br>
+Ramchandrapur (N)<br>
+S. N. Ghosh Avenue<br>
+Beside Ekta Sangha club (opposite road of S.N. Medical)<br>
+P.O. Narendrapur<br>
+Kolkata 700103
+						</p>
+					</div>
 					<div class="col-md-6">
 						<img
-							src="https://preview.ibb.co/cu76g9/Employee-2.jpg"
+							src=""
 							alt=""
 						/>
 					</div>
-					<div class="col-md-6">
-						<h3>Cutting-Edge Skill Development</h3>
-						<p>
-							GetLance Academy hosts regular, rigorous learning
-							sessions for the most in-demand skills. By
-							presenting our elite, experienced network with
-							ongoing opportunities to update and elevate their
-							portfolios, we are able to solve pressing talent
-							shortages while ensuring success for dedicated
-							participants.
-						</p>
-					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<img
-							src="https://preview.ibb.co/cu76g9/Employee-2.jpg"
-							alt=""
-						/>
-					</div>
-					<div class="col-md-6">
-						<h3>Cutting-Edge Skill Development</h3>
-						<p>
-							GetLance Academy hosts regular, rigorous learning
-							sessions for the most in-demand skills. By
-							presenting our elite, experienced network with
-							ongoing opportunities to update and elevate their
-							portfolios, we are able to solve pressing talent
-							shortages while ensuring success for dedicated
-							participants.
-						</p>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 		<b-modal id="chkAvailable" centered size="xl" title="">

@@ -461,6 +461,10 @@ select.form-control option {
 }
 .section h3 {
   color: #004085;
+  
+}
+.section h6 {
+  color: #004085;
 }
 .section p {
   margin-top: 10%;
@@ -498,7 +502,7 @@ select.form-control option {
 }
 
 .footerDiv {
-  background: rgb(0, 55, 36);
+  background: rgb(90,119,114);
   padding: 20px 50px;
   color: #a1a8ba;
 }

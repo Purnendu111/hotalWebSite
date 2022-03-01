@@ -1,6 +1,8 @@
 <template>
 	<div class="footerDiv" style="">
+		<hr style="width:100%;height:2px;border-width:0;color:gray;background-color:gray">
 		<b-row>
+			
 			<b-col cols="9">
 				<b-row>
 					<b-col cols="4">INFO</b-col>
@@ -34,7 +36,9 @@
 				</b-row>
 			</b-col>
 			<b-col cols="3">
+				<h6 class="text-uppercase mb-4 font-weight-bold">Follow us on</h6>
 				<b-row>
+					
 					<b-col cols="4"
 						><b-button variant="outline-info" class="mb-2">
 							<b-icon
