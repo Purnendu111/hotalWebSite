@@ -2,7 +2,7 @@
 	<div style="padding: 0; height: 100%">
 		<video-background
 			:src="require(`@/assets/img/video.mp4`)"
-			style="max-height: 650px; height: 650px; width: 100%"
+			style="max-height: 480px; height: 450px; width: 100%"
 			overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
 		>
 			<b-row class="">
@@ -18,10 +18,9 @@
 							<p style="font-size: 15px; color: #ccffcc">
 								MALHAR GREENS , KOLKATA
 							</p>
-							<p style="font-size: 15px; color: white">______</p>
-							<p style="font-size: 75px; color: #ccffcc">
-								ENJOY A LUXURY <br />
-								EXPERIENCE
+							<p style="font-size: 15px; color: white">________</p>
+							<p style="font-size: 60px; color: #ccffcc">
+								CELEBRATE WITH NATURE
 							</p>
 						</div>
 
@@ -35,20 +34,21 @@
 												width: 100%;
 												position: relative;
 												top: -170px;
+												background-color: rgba(0, 0, 0, 0.4);
 											"
 										>
 											<b-row style="margin: 0 !important">
 												<b-col cols="4">
 													<div class="form-header">
-														<h2>Book Now</h2>
+														<h2 style="color:white">Book Now</h2>
 													</div>
 												</b-col>
 												<b-col
 													cols="5"
 													align-self="center"
-													style="text-align: center"
+													style="text-align: center; color:white"
 												>
-													<span class="form-label"
+													<span class="form-label" style="color:white"
 														>Check In & Check
 														Out</span
 													>

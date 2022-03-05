@@ -2,7 +2,7 @@
 	<div style="background: #003724">
 		<b-navbar
 			toggleable="lg"
-			style="margin-left: 60px !important; height: 110px"
+			style="margin-left: 290px !important; height: 110px"
 		>
 			<b-navbar-brand href="/">
 				<b-img
@@ -10,6 +10,7 @@
 					height="55"
 					width="110"
 					fluid
+					
 				></b-img>
 			</b-navbar-brand>
 
