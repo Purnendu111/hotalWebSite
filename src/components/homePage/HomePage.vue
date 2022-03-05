@@ -16,11 +16,11 @@
 							"
 						>
 							<p style="font-size: 15px; color: #ccffcc">
-								MALHAR GREENS , KOLKATA
+								CELEBRATE WITH NATURE
 							</p>
 							<p style="font-size: 15px; color: white">________</p>
-							<p style="font-size: 60px; color: #ccffcc">
-								CELEBRATE WITH NATURE
+							<p style="font-size: 40px; color: #ccffcc">
+								MALHAR GREENS , KOLKATA
 							</p>
 						</div>
 
