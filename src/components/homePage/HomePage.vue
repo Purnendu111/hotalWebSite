@@ -91,9 +91,9 @@
 					<b-col>
 						<h3>Malhar Greens, Kolkata</h3><hr>
 						<p>
-							Malhar is an ideal location to celebrate your specials functions and important gatherings.<br>
- Nestled amidst the lush green orchard of Teak, Coconut, Lichie,  Cardamom and Sal trees, it provides the much needed cucoon of nature, very close to the city but far from its hustle-bustle. Just a 10min drive from KamalGazi Metro station, you can reach this property at ease through public and private conveyance. It houses a floating stage where you can host parties and events.
-							
+							Malhar Green is an ideal location to celebrate your special functions and joyous gatherings.<br>
+ Nestled amidst the lush green orchard of Teak, Coconut, Lichie, Cardamom and Sal trees, it provides the much-needed cucoon of nature, very close to the city but far from its hustle-bustle. Just a 10 min drive from Shaheed Khudiram/ Kavi Nazrul Metro station, you can reach this property at ease through public and private conveyance. It houses a floating stage where you can host parties and events. And the best part! It is available for all-night bookings too.
+							<br>The venue is also perfect for pre-wedding and other photography backdrops. 
 							<br><br>
 							<button class="btn">
 								<i class="fa fa-map-marker mr-2"></i>Ramchandrapur (N),
@@ -114,6 +114,24 @@ Kolkata 700103</button
 						</p>
 						<p style="font-size:20px ; font-weight: bold;color: #004085;">Hotel Highlights<br>
 						<hr>
+						<small>
+						House of 1800 sqft[central hall of 500 sqft]<br>
+4 large rooms for accomodation<br>
+ 17000+ sqft garden<br>
+More than 350 sqft Pool<br>
+Floating stage of more than 100 sqft area<br>
+Garden with more than 100 trees/ plants<br>
+Outdoor and indoor washroom facilities<br>
+5 min walk from EM Bypass <br>
+30 mins from Jadavpur 8B bas stand/ 45 mins from Gariahat
+
+						</small>
+
+
+							<!-- <button class="btn">
+								<i class="fa fa-home mr-2"></i>
+								<small>House of 1800 sqft [central hall of 500 sqft]</small></button
+							>
 							<button class="btn">
 								<i class="fa fa-map-marker mr-2"></i>
 								<small>Close to the city but far from its hustle-bustle</small></button
@@ -125,11 +143,8 @@ Kolkata 700103</button
 							<button class="btn">
 								<i class="fa fa-camera mr-2"></i>
 								<small>Amazing location for shoots</small></button
-							><br />
-							<button class="btn">
-								<i class="fa fa-home mr-2"></i>
-								<small>vintage- styled house with modern amnesties</small></button
-							>
+							><br /> -->
+							
 						
 						
 						<p>
@@ -167,7 +182,7 @@ Kolkata 700103</button
 					</b-col>
 				</b-row>
 				<b-row class="sectionRow">
-					<b-col>
+					<!-- <b-col>
 						<b-row>
 							<b-col>
 								<img
@@ -184,12 +199,63 @@ Kolkata 700103</button
 								/>
 							</b-col>
 						</b-row>
-					</b-col>
+					</b-col> -->
 					<b-col>
-						<h3>Guest Rooms</h3>
-						<hr style="width:35%;height:2px;border-width:0;color:gray;background-color:gray">
+						<h3>Venue</h3>
+						<hr style="width:8%;height:3px;border-width:0;color:gray;background-color:gray">
+						<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-sm-6">
+            <div class="pricingTable">
+                <div class="pricing_heading">
+                    <h3 class="title">Lawn</h3>
+                    <span class="value">
+                        Rs. 35000/-
+                        <span class="month">per booking</span>
+                    </span>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li>100 sqft. Floating Stage</li>
+                        <li>350+ sqft. Pool</li>
+                        <li>17000+ sqft. garden</li>
+                        <li>Garden with more than 100 trees/plants</li>
+                        <li>Lorem ipsum</li>
+                    </ul>
+                    <div class="link">
+                        <a href="#">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-						<p>
+        <div class="col-md-5 col-sm-6">
+            <div class="pricingTable">
+                <div class="pricing_heading">
+                    <h3 class="title">House along with Lawn</h3>
+                    <span class="value">
+                        Rs. 100000/-
+                        <span class="month">per booking</span>
+                    </span>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li>1800 sqft. House </li>
+                        <li>500 sqft. Central hall</li>
+                        <li>4 large rooms for accomodation</li>
+                        <li>Outdoor and indoor washroom</li>
+                        <li>Lorem ipsum</li>
+                    </ul>
+                    <div class="link">
+                        <a href="#">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+						<!-- <p>
 							GetLance Academy hosts regular, rigorous learning
 							sessions for the most in-demand skills. By
 							presenting our elite, experienced network with
@@ -197,7 +263,7 @@ Kolkata 700103</button
 							portfolios, we are able to solve pressing talent
 							shortages while ensuring success for dedicated
 							participants.
-						</p>
+						</p> -->
 					</b-col>
 				</b-row>
 				<div class="row">
