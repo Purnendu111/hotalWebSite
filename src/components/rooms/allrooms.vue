@@ -11,7 +11,8 @@
       </b-col>
       <b-col cols="7" style="padding: 30px">
         <b-row style="padding-bottom: 20px !important">
-          <b-col> Room 1</b-col>
+          <h3 style="color: #004085;">Double Bed with Attach Bath</h3>
+          
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
@@ -75,15 +76,15 @@
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
-              <b-button variant="outline-primary" style="position: relative; top: 26px">
-                 <b-icon icon="credit-card"></b-icon> Show Details
-            </b-button>
+              <b-button size="sm" class="mb-2">
+       Room Details <b-icon icon="caret-down" aria-hidden="true"></b-icon>
+    </b-button>
           </b-col>
         </b-row>
       </b-col>
       <b-col cols="2" style="text-align: right; padding: 30px" align-self="end">
         <b-row>
-          <b-col>$ 4700</b-col>
+          <b-col>₹ 4700</b-col>
         </b-row>
         <b-row>
           <b-col>Starting Rate/Night</b-col>
@@ -91,7 +92,7 @@
         <b-row>
           <b-col>
             <b-button variant="outline-primary">
-              <b-icon icon="credit-card"></b-icon> Pay Now
+               SELECT ROOM<b-icon icon="check"></b-icon>
             </b-button>
           </b-col>
         </b-row>
@@ -109,7 +110,8 @@
       </b-col>
       <b-col cols="7" style="padding: 30px">
         <b-row style="padding-bottom: 20px !important">
-          <b-col> Room 2</b-col>
+           <h3 style="color: #004085;">Double Bed without Bath</h3>
+          
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
@@ -173,15 +175,15 @@
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
-              <b-button variant="outline-primary" style="position: relative; top: 26px">
-                 <b-icon icon="credit-card"></b-icon> Show Details
-            </b-button>
+              <b-button size="sm" class="mb-2">
+       Room Details <b-icon icon="caret-down" aria-hidden="true"></b-icon>
+    </b-button>
           </b-col>
         </b-row>
       </b-col>
       <b-col cols="2" style="text-align: right; padding: 30px" align-self="end">
         <b-row>
-          <b-col>$ 4700</b-col>
+          <b-col>₹ 4700</b-col>
         </b-row>
         <b-row>
           <b-col>Starting Rate/Night</b-col>
@@ -189,12 +191,13 @@
         <b-row>
           <b-col>
             <b-button variant="outline-primary">
-              <b-icon icon="credit-card"></b-icon> Pay Now
+               SELECT ROOM<b-icon icon="check"></b-icon>
             </b-button>
           </b-col>
         </b-row>
       </b-col>
     </b-row>
+    
   </div>
 </template>
 <script>
