@@ -20,7 +20,7 @@
 					<b-nav-item class="navMenuAText marginL60" href="/"
 						>Home |</b-nav-item
 					>
-					<b-nav-item class="navMenuAText marginL60" href=""
+					<b-nav-item class="navMenuAText marginL60" href="/rooms"
 						>Rooms |</b-nav-item
 					>
 					<b-nav-item class="navMenuAText marginL60" href="/gallary"

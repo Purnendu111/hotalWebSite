@@ -12,7 +12,7 @@ const roomDataCollection = new mongoose.Schema(
     isRoomFree: String,
     RoomPic: Array,
   },
-  { collection: 'roomDataCollection' }
+  { collection: 'HotelBooking', strict: false }
 );
 
 const apiInit = new mongoose.Schema(

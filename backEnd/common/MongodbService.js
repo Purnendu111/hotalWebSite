@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 const mongoose = require('mongoose');
 // mongodb+srv://HotelManage:<password>@cluster0.d6eox.mongodb.net/HotelManage ?retryWrites=true&w=majority
 const uri =
-  'mongodb+srv://HotelManage:test@cluster0.d6eox.mongodb.net/hotel?retryWrites=true&w=majority';
+'mongodb+srv://user:user@cluster0.16luy.mongodb.net/HotelBooking?retryWrites=true&w=majority';
 
 var dbConnection = undefined;
 
