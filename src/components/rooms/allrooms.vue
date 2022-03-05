@@ -109,7 +109,7 @@
       </b-col>
       <b-col cols="7" style="padding: 30px">
         <b-row style="padding-bottom: 20px !important">
-          <b-col> Room 1</b-col>
+          <b-col> Room 2</b-col>
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
