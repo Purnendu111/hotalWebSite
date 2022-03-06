@@ -12,6 +12,7 @@ export default new Vuex.Store({
     dateRange: {
       startDate: new Date(),
       endDate: new Date(),
+      roomList:[]
     },
   },
   mutations: {},

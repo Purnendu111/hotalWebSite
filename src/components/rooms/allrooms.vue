@@ -1,7 +1,9 @@
 <template>
   <div style="padding: 50px">
-    <b-row style="margin-bottom: 20px !important; background: rgba(84, 87, 90, 0.2)">
-      <b-col cols="3" style="padding: 0!important">
+    <b-row
+      style="margin-bottom: 20px !important; background: rgba(84, 87, 90, 0.2)"
+    >
+      <b-col cols="3" style="padding: 0 !important">
         <b-img
           src="https://picsum.photos/1024/400/?image=41"
           style="min-height: 350px !important; height: 100% !important"
@@ -11,8 +13,7 @@
       </b-col>
       <b-col cols="7" style="padding: 30px">
         <b-row style="padding-bottom: 20px !important">
-          <h3 style="color: #004085;">Double Bed with Attach Bath</h3>
-          
+          <h3 style="color: #004085">Double Bed with Attach Bath</h3>
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
@@ -76,9 +77,10 @@
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
-              <b-button size="sm" class="mb-2">
-       Room Details <b-icon icon="caret-down" aria-hidden="true"></b-icon>
-    </b-button>
+            <b-button size="sm" class="mb-2">
+              Room Details
+              <b-icon icon="caret-down" aria-hidden="true"></b-icon>
+            </b-button>
           </b-col>
         </b-row>
       </b-col>
@@ -92,15 +94,17 @@
         <b-row>
           <b-col>
             <b-button variant="outline-primary">
-               SELECT ROOM<b-icon icon="check"></b-icon>
+              SELECT ROOM<b-icon icon="check"></b-icon>
             </b-button>
           </b-col>
         </b-row>
       </b-col>
     </b-row>
 
-    <b-row style="margin-bottom: 20px !important; background: rgba(84, 87, 90, 0.2)">
-      <b-col cols="3" style="padding: 0!important">
+    <b-row
+      style="margin-bottom: 20px !important; background: rgba(84, 87, 90, 0.2)"
+    >
+      <b-col cols="3" style="padding: 0 !important">
         <b-img
           src="https://picsum.photos/1024/400/?image=41"
           style="min-height: 350px !important; height: 100% !important"
@@ -110,8 +114,7 @@
       </b-col>
       <b-col cols="7" style="padding: 30px">
         <b-row style="padding-bottom: 20px !important">
-           <h3 style="color: #004085;">Double Bed without Bath</h3>
-          
+          <h3 style="color: #004085">Double Bed without Bath</h3>
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
@@ -175,9 +178,10 @@
         </b-row>
         <b-row style="padding-bottom: 20px !important">
           <b-col>
-              <b-button size="sm" class="mb-2">
-       Room Details <b-icon icon="caret-down" aria-hidden="true"></b-icon>
-    </b-button>
+            <b-button size="sm" class="mb-2">
+              Room Details
+              <b-icon icon="caret-down" aria-hidden="true"></b-icon>
+            </b-button>
           </b-col>
         </b-row>
       </b-col>
@@ -191,13 +195,12 @@
         <b-row>
           <b-col>
             <b-button variant="outline-primary">
-               SELECT ROOM<b-icon icon="check"></b-icon>
+              SELECT ROOM<b-icon icon="check"></b-icon>
             </b-button>
           </b-col>
         </b-row>
       </b-col>
     </b-row>
-    
   </div>
 </template>
 <script>

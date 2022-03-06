@@ -1,0 +1,654 @@
+import vuex from 'vuex';
+import Vue from 'vue';
+import axios from 'axios';
+// import VueSimpleAlert from 'vue-simple-alert';
+
+import createPersistedState from 'vuex-persistedstate';
+import SecureLS from 'secure-ls';
+// import { forEach } from "lodash";
+const ls = new SecureLS({ isCompression: false });
+
+Vue.use(vuex);
+export default new vuex.Store({
+	state: {
+		cartCount: 0,
+		isAuth: false,
+		products: [],
+		cartItems: [],
+		cartObj: {
+			cartId: '',
+			userId: '',
+			date: '',
+			cartProducts: [],
+		},
+		token: '',
+		firstName: '',
+		lastName: '',
+		customer_id: '',
+		role: '',
+		isAuthenticated: false,
+		scope: '',
+		idToken: '',
+		keyClockAuthenticate: false,
+		subtotal: 0,
+		setval: '',
+		hasResourceRole: '',
+		customer_show: false,
+		customer_show_n: true,
+		logoutOption: false,
+		admin_show: false,
+		order_management_admin: false,
+		product_manager: false,
+		inventory_manager: false,
+		shipment_manager: false,
+		customer: false,
+		soloProductId: '',
+		getProdFor: '',
+		amountToPay: '',
+		userId: '',
+		addressId: '',
+		userObj: '',
+		orderConId: "",
+		pickUpType: ""
+		// customer_show: '',
+		// customer_show_n: '',
+		// admin_show: '',
+		// logoutOption: '',
+		// order_management_admin: '',
+	},
+	getters: {
+		// filtering the product with quantity
+		// availableProduct(state) {
+		//     return state.products.topProdList.filter(product => product.quantity > 0)
+		// }
+
+		checkIsAuthAdmin() { },
+	},
+	actions: {
+
+		pickUpTypeFunc({ commit }, type) {
+			commit('pickUpType', type);
+		},
+
+		setOrderIdFunc({ commit }, id) {
+			// alert("func == " + id)
+			commit('setOrderId', id);
+		},
+
+		clearCartDataOnOrderSubmit({ commit }) {
+			commit('clearCartData');
+		},
+
+		fetchSalesCount({ commit }, sales) {
+			console.log("fetchsales", sales)
+			if (sales) {
+				// alert("testsales", sales)
+				commit('setSalesCount', sales);
+			}
+		},
+
+		// fetching all product from jsom
+		fetchAllProducts({ commit }, prod) {
+			if (prod) {
+				// alert("test")
+				commit('setProducts', prod);
+			}
+		},
+
+		fetchUserId({ commit }, userId) {
+			// if (userId) {
+			// alert("test")
+			commit('setUserId', userId);
+			// }
+		},
+
+		checkUnAuthenticate({ commit }, callfrom) {
+			if (callfrom != '') {
+				commit('checkIsUnAuthenticate', callfrom);
+			}
+		},
+
+		getProdFor({ commit }, data) {
+			console.log('store data', data);
+			if (data != '') {
+				commit('getProdFor', data);
+			}
+		},
+
+		getDetailByProdId({ commit }, data) {
+			if (data != '') {
+				commit('getDetailByProdId', data);
+			}
+		},
+
+		totalAmountInCart({ commit }, data) {
+			if (data != '') {
+				commit('totalAmountInCart', data);
+			}
+		},
+		amountToPayFunc({ commit }, price) {
+			if (price != '') {
+				commit('amountToPay', price);
+			}
+		},
+
+		removeFromCartCallFunction({ commit }, obj) {
+			if (obj != '') {
+				commit('removeFromCart', obj);
+				commit('totalAmountInCart', obj);
+			}
+		},
+
+		setLocalStorage(context, data) {
+			if (context.state.keyClockAuthenticate == false && data != null) {
+				context.commit('setLocalStoregeM', data);
+			}
+			// console.log(JSON.stringify(context.state) + "====context.state1")
+		},
+
+		cartManipulate(context, obj1) {
+			console.log('store cartManipulate', obj1);
+			let product = obj1[0],
+				callfrom = obj1[1],
+				quantityFromSolo = obj1[2];
+			// alert(context.state.keyClockAuthenticate)
+			if (product != null) {
+				const item = context.state.cartItems.find(
+					(item) => item.productId === product.productId
+				);
+				if (!item) {
+					let obj = [product, quantityFromSolo];
+					context.commit('pushToCart', obj);
+					if (context.state.keyClockAuthenticate) {
+						obj[0].cartQuantity = quantityFromSolo == '' ? 1 : quantityFromSolo;
+						context.commit('dataSendtoDB', obj[0]);
+					}
+				} else {
+					let obj = [item, quantityFromSolo];
+					if (callfrom == 'add') {
+						context.commit('incrementItemInCart', obj);
+					} else {
+						context.commit('decrementItemInCart', obj);
+					}
+					if (context.state.keyClockAuthenticate) {
+						if (context.state.cartItems.length >= 1) {
+							context.commit('dataSendtoDB', item);
+						}
+					}
+				}
+				context.commit('totalAmountInCart');
+				// if (context.state.keyClockAuthenticate) {
+				//     alert("test")
+				//     context.commit("dataSendtoDB", obj)
+				// }
+				// context.commit("countCartItems");
+			}
+		},
+		addCartOnLogin(context) {
+			if (
+				context.state.keyClockAuthenticate &&
+				(context.state.cartObj.cartId == '' || context.state.cartObj.cartId == 0)
+			) {
+				console.log("call from Auth");
+				context.commit('addCartOnLogin');
+			}
+			context.commit('totalAmountInCart');
+		},
+	},
+	mutations: {
+		// setting product details globally so we can get it from anywhere without refreshing
+
+		setSalesCount(state, payload) {
+			state.salesCount = payload;
+			console.log("state.salesCount")
+		},
+		pickUpType(state, type) {
+			// alert(id)
+			state.pickUpType = type;
+		},
+		setOrderId(state, id) {
+			// alert(id)
+			state.orderConId = id;
+		},
+		setProducts(state, payload) {
+			state.products = payload;
+		},
+		setUserId(state, payload) {
+			// console.log("payload", payload, payload.userAddress.addressId)
+			// state.userId = payload.userId;
+			// state.addressId = payload.userAddress.addressId;
+			// state.userObj = payload;
+			state.userId = 12;
+			state.addressId = 5;
+			state.userObj = { "userId": 12, "userName": "DIS User", "userEmail": "dis_user@tcs.com", "contactNumber": "+1-2487661234", "userAddress": { "addressId": 5, "addressline1": "Patrick Henry St", "addressline2": "Apt 204", "city": "Kolkata", "zipCode": "700156", "state": "West Bengal", "country": "INDIA", "addressType": "HOME", "defaultSelected": "Y" } };
+			console.log("state.addressId", state.userObj)
+		},
+		pushToCart(state, obj) {
+			console.log('store pushtocart', obj);
+			let payload = obj[0],
+				quantity = obj[1];
+			let cart = {
+				productId: payload.productId,
+				img: payload.image,
+				productName: payload.productName,
+				productPrice: payload.price,
+				cartQuantity: quantity == '' ? 1 : quantity,
+				availableQuantity: payload.availableQuantity,
+			};
+			state.cartItems.push(cart);
+			state.cartCount =
+				quantity == ''
+					? state.cartCount + 1
+					: parseInt(state.cartCount) + parseInt(quantity);
+		},
+		incrementItemInCart(state, obj) {
+			let payload = obj[0],
+				quantity = obj[1];
+			payload['cartQuantity'] =
+				quantity == ''
+					? parseInt(payload['cartQuantity']) + 1
+					: parseInt(payload['cartQuantity']) + parseFloat(quantity);
+			state.cartCount =
+				quantity == ''
+					? state.cartCount + 1
+					: parseInt(state.cartCount) + parseInt(quantity);
+		},
+		totalAmountInCart(state) {
+			let total = 0;
+			state.cartItems.forEach((product) => {
+				total +=
+					parseFloat(product.productPrice).toFixed(2) *
+					parseInt(product.cartQuantity).toFixed(2);
+			});
+			state.subtotal = total.toFixed(2);
+		},
+
+		decrementItemInCart(state, obj) {
+			let payload = obj[0];
+			payload['cartQuantity']--;
+			state.cartCount--;
+		},
+
+		setLocalStoregeM(state, data) {
+			// alert(data.authenticated)
+			state.keyClockAuthenticate = data.authenticated;
+			if (state.keyClockAuthenticate) {
+				console.log(data.tokenParsed.preferred_username);
+				state.token = data.token;
+				state.firstName = data.tokenParsed.given_name;
+				state.lastName = data.tokenParsed.family_name;
+				state.customer_id = data.tokenParsed.preferred_username;
+				state.role = data.tokenParsed.resource_access['dis_vue_client'].roles;
+				state.isAuthenticated = true;
+				state.scope = data.tokenParsed.scope;
+				state.idToken = data.idToken;
+				let scArr = state.scope.split(' ');
+				if (scArr.includes('dis_vue_client')) {
+					// store.admin_show = true;
+					state.admin_show = true;
+				}
+			}
+			console.log(state.customer_id + "====state.customer_id");
+			if (state.isAuthenticated) {
+				state.logoutOption = true;
+				state.customer_show_n = false;
+				state.customer_show = true;
+				if (state.role.includes('dis_admin')) {
+					state.admin_show = true;
+					state.order_management_admin = true;
+				}
+				if (state.role.includes('order_management_admin')) {
+					state.order_management_admin = true;
+				}
+				if (state.role.includes('product_manager')) {
+					state.product_manager = true;
+				}
+				if (state.role.includes('inventory_manager')) {
+					state.inventory_manager = true;
+				}
+				if (state.role.includes('shipment_manager')) {
+					state.shipment_manager = true;
+				}
+				if (state.role.includes('consumer_role')) {
+					state.customer = true;
+				}
+			}
+		},
+		checkIsUnAuthenticate(state, data) {
+			if (state.isAuthenticated) {
+				if (data == 'product' && state.role == 'product_manager') {
+					state.product_manager = true;
+				} else if (data == 'inventory' && state.role == 'inventory_manager') {
+					state.inventory_manager = true;
+				} else if (data == 'shipment' && state.role == 'shipment_manager') {
+					state.shipment_manager = true;
+				} else if (
+					data == 'customer_payment' &&
+					state.role == 'consumer_role'
+				) {
+					state.customer = true;
+				}
+			}
+		},
+		getProdFor(state, data) {
+			state.getProdFor = data;
+		},
+		getDetailByProdId(state, data) {
+			console.log(data);
+			if (data[2] == "cartCall") {
+				state.soloProductId = data
+				state.soloProductId[2] = "cartCall";
+				// alert("2")
+			} else {
+				state.soloProductId = data;
+			}
+		},
+
+		dataSendtoDB(state, objData) {
+			// console.log(state.cartObj);
+			var currentdate = new Date();
+			var datetime =
+				currentdate.getFullYear() +
+				'-' +
+				(currentdate.getMonth() + 1) +
+				'-' +
+				currentdate.getDate() +
+				' ' +
+				currentdate.getHours() +
+				':' +
+				currentdate.getMinutes() +
+				':' +
+				currentdate.getSeconds();
+
+			state.cartObj.date = datetime;
+			// alert(state.userObj)
+			if (state.cartObj.cartId == '' || state.cartObj.cartId == 0) {
+				let obj = [];
+				delete state.cartObj.cartId;
+				// state.cartObj.userId = 12;
+				state.cartObj.userId = state.userId;
+				state.cartObj.status = 'A';
+				state.cartItems.forEach((element, i) => {
+					let obj1 = {};
+					obj1.productId = element.productId;
+					obj1.cartQuantity = element.cartQuantity;
+					obj1.offerId = i + 1;
+					obj.push(obj1);
+				});
+				state.cartObj.status = 'A';
+				state.cartObj.cartProducts = obj;
+				axios
+					.post(
+						'carts',
+						state.cartObj,
+						// "carts", test,
+						{
+							headers: {
+								'transaction-id': '',
+								// "Access-Control-Allow-Origin": "*",
+							},
+						}
+					)
+					.then((response) => {
+						// eslint-disable-next-line
+						console.log('==============');
+						console.log(state.cartItems);
+						console.log('Response:');
+						console.log(response.data);
+						state.cartObj.cartId = response.data.cartId;
+						state.cartObj.userId = response.data.userId;
+						state.cartObj.date = response.data.date;
+					})
+					.catch(function (error) {
+						// eslint-disable-next-line
+						console.log(error);
+					})
+					.finally(() => {
+						// self.$isLoading(false); // hide the loading screen
+					});
+			} else {
+				let obj = [];
+				let obj1 = {};
+				console.log(JSON.stringify(objData) + '===' + objData.productId);
+				obj1.productId = objData.productId;
+				obj1.cartQuantity = objData.cartQuantity;
+				obj1.offerId = 4;
+				console.log(obj1);
+				obj.push(obj1);
+				// state.cartItems.forEach((element, i) => {
+				//     let obj1 = {}
+				//     obj1.productId = element.productId
+				//     obj1.cartQuantity = element.cartQuantity
+				//     obj1.offerId = i + 1
+				//     obj.push(obj1)
+				// });
+				console.log(obj);
+				state.cartObj.status = 'A';
+				state.cartObj.cartProducts = obj;
+				axios
+					.put('carts', state.cartObj, {
+						headers: {
+							'transaction-id': '',
+							// "Access-Control-Allow-Origin": "*",
+						},
+					})
+					.then((response) => {
+						// eslint-disable-next-line
+						console.log('Response:');
+						console.log(response.data);
+						state.cartObj.cardId = response.data.cardId;
+						state.cartObj.userId = response.data.userId;
+						state.cartObj.date = response.data.date;
+					})
+					.catch(function (error) {
+						// eslint-disable-next-line
+						console.log(error);
+					})
+					.finally(() => {
+						// self.$isLoading(false); // hide the loading screen
+					});
+			}
+		},
+		async addCartOnLogin(state) {
+			let cartItemsLength = state.cartItems.length;
+			var currentdate = new Date();
+			var datetime =
+				currentdate.getFullYear() +
+				'-' +
+				(currentdate.getMonth() + 1) +
+				'-' +
+				currentdate.getDate() +
+				' ' +
+				currentdate.getHours() +
+				':' +
+				currentdate.getMinutes() +
+				':' +
+				currentdate.getSeconds();
+
+			await axios
+				.get(
+					// "carts", state.cartObj,
+					'carts/' + state.userId,
+					{
+						headers: {
+							'transaction-id': '',
+							// "Access-Control-Allow-Origin": "*",
+						},
+					}
+				)
+				.then((response) => {
+					// eslint-disable-next-line
+					console.log(JSON.stringify(response.data) + '=====Res');
+					let obj = response.data;
+					state.cartObj.cartId = obj.cartId;
+					state.cartObj.userId = obj.userId;
+					state.cartCount = 0;
+					// if (state.cartItems.length === 0) {
+					// }
+					obj.cartProductResponses.forEach((ele) => {
+						let item = state.cartItems.find(
+							(item) => item.productId === ele.productId
+						);
+						if (!item) {
+							let cart = {
+								productId: ele.productId,
+								img: ele.image,
+								productName: ele.productName,
+								productPrice: ele.productPrice,
+								cartQuantity: ele.productQuantity,
+								availableQuantity: ele.availableQuantity,
+							};
+							// console.log(JSON.stringify(cart) + "============Cart");
+							state.cartItems.push(cart);
+						} else {
+							// console.log(parseInt(item.cartQuantity) + "=======" + parseInt(ele.productQuantity));
+							item.cartQuantity =
+								parseInt(item.cartQuantity) + parseFloat(ele.productQuantity);
+						}
+						state.cartCount =
+							parseInt(state.cartCount) + parseInt(ele.productQuantity);
+					});
+					if (cartItemsLength > 0) {
+						let objForPut = [];
+						state.cartItems.forEach((element, i) => {
+							let obj1 = {};
+							obj1.productId = element.productId;
+							obj1.cartQuantity = element.cartQuantity;
+							obj1.offerId = i + 1;
+							objForPut.push(obj1);
+						});
+						state.cartObj.date = datetime;
+						state.cartObj.status = 'A';
+						state.cartObj.cartProducts = objForPut;
+						if (state.cartItems) {
+							axios
+								.put('carts', state.cartObj, {
+									headers: {
+										'transaction-id': '',
+										// "Access-Control-Allow-Origin": "*",
+									},
+								})
+								.then((response) => {
+									// eslint-disable-next-line
+									console.log('Response:');
+									console.log(response.data);
+									state.cartObj.cardId = response.data.cardId;
+									state.cartObj.userId = response.data.userId;
+									state.cartObj.date = response.data.date;
+								})
+								.catch(function (error) {
+									// eslint-disable-next-line
+									console.log(error);
+								})
+								.finally(() => {
+									// self.$isLoading(false); // hide the loading screen
+								});
+						}
+					}
+
+					console.log(state.cartItems);
+				})
+				.catch(function (error) {
+					// eslint-disable-next-line
+					console.log(error);
+				})
+				.finally(() => {
+					// self.$isLoading(false); // hide the loading screen
+				});
+			if (state.cartObj.cartId == '') {
+				let obj = [];
+				delete state.cartObj.cartId;
+				// state.cartObj.userId = 13;
+				state.cartObj.userId = state.userId;
+				state.cartObj.status = 'A';
+				state.cartObj.date = datetime;
+				state.cartItems.forEach((element, i) => {
+					let obj1 = {};
+					obj1.productId = element.productId;
+					obj1.cartQuantity = element.cartQuantity;
+					obj1.offerId = i + 1;
+					obj.push(obj1);
+				});
+				state.cartObj.status = 'A';
+				state.cartObj.cartProducts = obj;
+				axios
+					.post(
+						'carts',
+						state.cartObj,
+						// "carts", test,
+						{
+							headers: {
+								'transaction-id': '',
+								// "Access-Control-Allow-Origin": "*",
+							},
+						}
+					)
+					.then((response) => {
+						// eslint-disable-next-line
+						console.log('==============');
+						// console.log(state.cartItems);
+						console.log('Response:');
+						// console.log(response.data);
+						state.cartObj.cartId = response.data.cartId;
+						state.cartObj.userId = response.data.userId;
+						state.cartObj.date = response.data.date;
+					})
+					.catch(function (error) {
+						// eslint-disable-next-line
+						console.log(error);
+					})
+					.finally(() => {
+						// self.$isLoading(false); // hide the loading screen
+					});
+			}
+		},
+
+		countCartItems(state) {
+			state.cartCount = 0;
+			console.log('---------------------');
+			console.log(state.cartItems);
+			state.cartItems.forEach((element) => {
+				state.cartCount =
+					parseInt(state.cartCount) + parseInt(element.cartQuantity);
+			});
+		},
+		// Remove from cart
+		removeFromCart(state, obj) {
+			console.log(obj.cartQuantity);
+			let id = obj.productId,
+				arr = state.cartItems,
+				quantity = obj.cartQuantity;
+			var i = arr.length;
+			while (i--) {
+				if (arr[i] && arr[i].productId === id) {
+					arr.splice(i, 1);
+				}
+			}
+			console.log(arr);
+			state.cartCount = state.cartCount - parseInt(quantity);
+			state.cartItems = arr;
+		},
+		amountToPay(state, price) {
+			state.amountToPay = price;
+		},
+		clearCartData(state) {
+			state.cartItems = [];
+			state.cartObj.cartId = 0;
+			state.cartObj.cartProducts = []
+			state.cartCount = 0;
+			state.amountToPay = 0;
+
+
+		}
+	},
+	plugins: [
+		createPersistedState({
+			key: 'userDATA',
+			storage: {
+				getItem: (key) => ls.get(key),
+				setItem: (key, value) => ls.set(key, value),
+				removeItem: (key) => ls.remove(key),
+			},
+		}),
+	],
+});

@@ -5,6 +5,7 @@ import About_Us from '../components/About_Us/us.vue';
 import Contact_Us from '../components/About_Us/contact.vue';
 import Gallary from '../components/About_Us/gallary.vue';
 import rooms from '../components/rooms/allrooms.vue'
+import checkout from '../components/payments/checkout.vue'
 Vue.use(VueRouter);
 
 const routes = [
@@ -32,6 +33,10 @@ const routes = [
     path: '/rooms',
     name: 'rooms',
     component: rooms,
+  },{
+    path: '/checkout',
+    name: 'checkout',
+    component: checkout,
   },
 ];
 
