@@ -22,7 +22,7 @@
 						>Home |</b-nav-item
 					>
 					<b-nav-item class="navMenuAText marginL60" href="/rooms"
-						>Rooms |</b-nav-item
+						>Zones |</b-nav-item
 					>
 					<b-nav-item class="navMenuAText marginL60" href="/gallary"
 						>Gallery |</b-nav-item
