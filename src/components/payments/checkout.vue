@@ -15,7 +15,7 @@
 					<b-row>
 						<b-col>
 							<h1 style="font-size: 24px">
-								Raajkutir, Kolkata - IHCL SeleQtions
+								Malhar Greens- Sonarpur
 							</h1>
 							<hr
 								style="
@@ -26,13 +26,13 @@
 					</b-row>
 					<b-row style="padding-bottom: 30px">
 						<b-col cols="auto">
-							<h6>Check-In(11:00 Am) <br />dd-mm-yyyy</h6></b-col
+							<h6>Check-In(11:00 Am) <br />{{dateRange.startDate}}</h6></b-col
 						>
 						<b-col>
-							<h6>Check-Out(10:00 Am) <br />dd-mm-yyyy</h6>
+							<h6>Check-Out(10:00 Am) <br />{{dateRange.startDate}}</h6>
 						</b-col>
 					</b-row>
-					<b-row style="padding-bottom: 30px">
+					<b-row style="padding-bottom: 30px" v-for="(roomdata, id) in roomList" :key="id">
 						<b-col>
 							<img
 								src="../../assets/img/bed.svg"
@@ -45,11 +45,11 @@
 									font-size: 20px;
 									padding-left: 10px;
 								"
-								>ROOM1: Superior Room
+								>{{roomdata.roomName}}
 							</span>
 						</b-col>
 					</b-row>
-					<b-row style="padding-bottom: 30px">
+					<!-- <b-row style="padding-bottom: 30px">
 						<b-col>
 							<img
 								src="../../assets/img/bed.svg"
@@ -65,7 +65,7 @@
 								>ROOM1: Superior Room</span
 							>
 						</b-col>
-					</b-row>
+					</b-row> -->
 				</b-col>
 				<b-col>
 					<b-row>
@@ -76,7 +76,7 @@
 					<b-row>
 						<b-col cols="auto">
 							<b-button v-b-toggle.details variant="outline"
-								>Price (2 Rooms 1 Night)
+								>Price ({{roomList.length}} Rooms 1 Night)
 								<img
 									src="../../assets/img/icons/down.svg"
 									style="height: 20px !important"
@@ -84,7 +84,7 @@
 							/></b-button>
 						</b-col>
 						<b-col align-self="center" style="text-align: right"
-							>Rs. 11000</b-col
+							>Rs. {{totalPriceForRooms}}</b-col
 						>
 					</b-row>
 					<b-row style="padding-bottom: 20px">
@@ -94,24 +94,17 @@
 								class="mt-2"
 								style="padding-left: 25px; padding-bottom: 20px"
 							>
+							<div v-for="(roomdata, id) in roomList" :key="id">
 								<b-row>
-									<b-col> Room1 </b-col>
+									<b-col> {{roomdata.roomName}} </b-col>
 								</b-row>
 								<b-row>
-									<b-col style=""> dd-mm-yyyy </b-col>
+									<b-col style=""> {{dateRange.startDate}} </b-col>
 									<b-col style="text-align: right">
-										5500
+										{{roomdata.price}}
 									</b-col>
 								</b-row>
-								<b-row>
-									<b-col> Room2 </b-col>
-								</b-row>
-								<b-row>
-									<b-col style=""> dd-mm-yyyy </b-col>
-									<b-col style="text-align: right">
-										5500
-									</b-col>
-								</b-row>
+							</div>
 							</b-collapse>
 						</b-col>
 					</b-row>
@@ -158,3 +151,39 @@
 		</div>
 	</div>
 </template>
+<script>
+import { mapState } from "vuex";
+export default {
+	name: "",
+	data() {
+		return {
+			dateArray: [],
+		};
+	},
+	computed: {
+		...mapState({
+			roomList: "roomList",
+			dateRange:"dateRange",
+			totalPriceForRooms:"totalPriceForRooms"
+		}),
+	},
+	beforeMount() {},
+	mounted() {
+		console.log(JSON.stringify(this.roomList)+"=====data");
+		console.log(JSON.stringify(this.dateRange)+"=====date===="+this.totalPriceForRooms);
+	},
+	methods: {
+		// addRooms(id, roomType, roomName, price) {
+		// 	let obj = {
+		// 		roomType: roomType,
+		// 		roomName: roomName,
+		// 		price: price,
+		// 	};
+		// 	// console.log(obj);
+		// 	this.$store.dispatch("addToRoomList", obj);
+		// 	console.log(this.roomList);
+		// 	document.getElementById(id).style.display = "none";
+		// },
+	},
+};
+</script>

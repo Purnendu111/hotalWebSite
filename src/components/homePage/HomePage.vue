@@ -36,12 +36,7 @@
 												width: 100%;
 												position: relative;
 												top: -170px;
-												background-color: rgba(
-													0,
-													0,
-													0,
-													0.4
-												);
+												background: rgba(0, 0, 0, 0.4) !important;
 											"
 										>
 											<b-row style="margin: 0 !important">
@@ -84,7 +79,6 @@
 													cols="3"
 													align-self="center"
 												>
-													<rzrPay></rzrPay>
 													<button
 														class="submit-btn"
 														v-b-modal.chkAvailable
@@ -585,11 +579,11 @@
 
 <script>
 import { mapState } from "vuex";
-import rzrPay from "../payments/googlePay.vue";
+// import rzrPay from "../payments/googlePay.vue";
 
 import footerComp from "../ExtraComponents/footer.vue";
 export default {
-	components: { footerComp, rzrPay },
+	components: { footerComp },
 	filters: {
 		date(value) {
 			if (!value) return "";
@@ -648,7 +642,8 @@ export default {
 			let steps = 1;
 			this.dateArray = [];
 			let currentDate = new Date(this.fromDate);
-
+			let obj = {startDate:this.fromDate, endDate:this.toDate}
+			this.$store.dispatch("dateChange", obj);
 			while (currentDate <= new Date(this.toDate)) {
 				this.dateArray.push(new Date(currentDate));
 				// Use UTC date to prevent problems with time zones and DST
