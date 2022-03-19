@@ -461,7 +461,6 @@ select.form-control option {
 }
 .section h3 {
   color: #004085;
-  
 }
 .section h6 {
   color: #004085;
@@ -534,17 +533,16 @@ select.form-control option {
   background: rgb(0, 55, 36);
 }
 
-
-.pricingTable{
-  margin-top:30px;
+.pricingTable {
+  margin-top: 30px;
   text-align: center;
   position: relative;
 }
-.pricingTable .pricing_heading:after{
-  content: "";
+.pricingTable .pricing_heading:after {
+  content: '';
   width: 36px;
   height: 29.5%;
-  background:#af7280;
+  background: #af7280;
   position: absolute;
   top: -1px;
   right: 0;
@@ -552,7 +550,7 @@ select.form-control option {
   transform: skewY(45deg) translateY(18px);
   transition: all 0.4s ease 0s;
 }
-.pricingTable .title{
+.pricingTable .title {
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -563,7 +561,7 @@ select.form-control option {
   margin: 0 35px 0 0;
   transition: all 0.4s ease 0s;
 }
-.pricingTable .value{
+.pricingTable .value {
   display: block;
   font-size: 35px;
   font-weight: 700;
@@ -574,22 +572,22 @@ select.form-control option {
   transition: all 0.4s ease 0s;
 }
 .pricingTable:hover .title,
-.pricingTable:hover .value{
+.pricingTable:hover .value {
   color: #fff;
 }
-.pricingTable .month{
+.pricingTable .month {
   display: block;
   font-size: 13px;
   font-weight: 500;
   color: #fff;
   text-transform: uppercase;
 }
-.pricingTable .content{
+.pricingTable .content {
   border-left: 1px solid #f2f2f2;
   position: relative;
 }
-.pricingTable .content:after{
-  content: "";
+.pricingTable .content:after {
+  content: '';
   width: 35px;
   height: 100%;
   background: #f8f8f8;
@@ -601,13 +599,13 @@ select.form-control option {
   transform: skewY(-45deg) translateY(-18px);
   transition: all 0.4s ease 0s;
 }
-.pricingTable .content ul{
+.pricingTable .content ul {
   padding: 0;
   margin: 0 35px 0 0;
   list-style: none;
   background: #fff;
 }
-.pricingTable .content ul li{
+.pricingTable .content ul li {
   display: block;
   font-size: 15px;
   color: #333;
@@ -615,13 +613,13 @@ select.form-control option {
   padding: 11px 0;
   border-bottom: 1px solid #f2f2f2;
 }
-.pricingTable .link{
+.pricingTable .link {
   background: #fff;
   padding: 20px 0;
   margin-right: 35px;
   border-bottom: 1px solid #f2f2f2;
 }
-.pricingTable .link a{
+.pricingTable .link a {
   display: inline-block;
   padding: 9px 20px;
   font-weight: 700;
@@ -631,18 +629,25 @@ select.form-control option {
   background: #fff;
   transition: all 0.4s ease 0s;
 }
-.pricingTable:hover .link a{
+.pricingTable:hover .link a {
   color: #fff;
   background: #103128;
   border: 1px solid #134739;
 }
 .pricingTable:hover .pricing_heading:after,
 .pricingTable:hover .title,
-.pricingTable:hover .value{
-  background:#194237;
+.pricingTable:hover .value {
+  background: #194237;
 }
-@media only screen and (max-width: 990px){
-  .pricingTable{
-      margin-bottom: 35px;
+@media only screen and (max-width: 990px) {
+  .pricingTable {
+    margin-bottom: 35px;
   }
+}
+
+.formBook {
+  width: 100%;
+  position: relative;
+  top: -170px;
+  background: rgba(0, 0, 0, 0.4) !important;
 }

@@ -96,8 +96,9 @@ Vue.use(VueRouter);
 Vue.use(IconsPlugin);
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyCcOFrBsNQWWCtLi8WuORjOxUkE5Ic_drM',
+    key: 'AIzaSyDkaWI_yu2Y1nZXHLqJ9JjK0zCmew5H1aM',
     libraries: 'places',
+    // key: 'AIzaSyCro9itvVOpXBQpszT_u2EY9MNEMmrClN0',
   },
 });
 

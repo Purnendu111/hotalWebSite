@@ -10,14 +10,13 @@
 					height="55"
 					width="110"
 					fluid
-					
 				></b-img>
 			</b-navbar-brand>
 
 			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
 			<b-collapse id="nav-collapse" is-nav>
-				<b-navbar-nav class="NavUL">
+				<b-navbar-nav class="">
 					<b-nav-item class="navMenuAText marginL60" href="/"
 						>Home |</b-nav-item
 					>
