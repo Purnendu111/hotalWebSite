@@ -91,7 +91,6 @@ Vue.use(Vuex);
 
 Vue.prototype.cartValue = '3';
 Vue.use(require('vue-resource'));
-// Vue.use(mdbDatatable)
 Vue.use(VueSimpleAlert);
 Vue.use(VueRouter);
 Vue.use(IconsPlugin);

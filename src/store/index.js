@@ -12,12 +12,30 @@ export default new Vuex.Store({
     dateRange: {
       startDate: new Date(),
       endDate: new Date(),
-      roomList:[]
+    },
+    roomTypeList: [],
+    roomList: [],
+  },
+  actions: {
+    addToRoomList(context, obj) {
+      console.log(obj);
+      let item = '';
+      if (context.state.roomList.length > 1) {
+        item = context.state.roomList.find(
+          (item) => item.roomType === obj.roomType
+        );
+      }
+      if (item == '') {
+        context.commit('addRooms', obj);
+      }
     },
   },
-  mutations: {},
-  actions: {},
-  modules: {},
+  mutations: {
+    addRooms(state, payload) {
+      state.roomList.push(payload);
+      state.roomTypeList.push(payload.roomType);
+    },
+  },
   plugins: [
     createPersistedState({
       key: 'userDATA',

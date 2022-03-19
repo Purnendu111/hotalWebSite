@@ -6,6 +6,8 @@ const session = require('express-session');
 
 const cors = require('cors');
 
+const whitelistedDomains = 'http://localhost:8080';
+
 dotenv.config({ path: './config/config.env' });
 
 const app = express();
@@ -21,11 +23,19 @@ app.use(
     saveUninitialized: true,
   })
 );
-app.use(
-  cors({
-    origin: 'http://localhost:8080',
-  })
-);
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelistedDomains.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
 //const routeadmin = require('./routes/routeadmin');
 const routeapiinit = require('./routes/routeapiinit');
 const routesignup = require('./routes/routesignup');

@@ -18,7 +18,9 @@
 							<p style="font-size: 15px; color: #ccffcc">
 								CELEBRATE WITH NATURE
 							</p>
-							<p style="font-size: 15px; color: white">________</p>
+							<p style="font-size: 15px; color: white">
+								________
+							</p>
 							<p style="font-size: 40px; color: #ccffcc">
 								MALHAR GREENS , KOLKATA
 							</p>
@@ -34,21 +36,35 @@
 												width: 100%;
 												position: relative;
 												top: -170px;
-												background-color: rgba(0, 0, 0, 0.4);
+												background-color: rgba(
+													0,
+													0,
+													0,
+													0.4
+												);
 											"
 										>
 											<b-row style="margin: 0 !important">
 												<b-col cols="4">
 													<div class="form-header">
-														<h2 style="color:white">Book Now</h2>
+														<h2
+															style="color: white"
+														>
+															Book Now
+														</h2>
 													</div>
 												</b-col>
 												<b-col
 													cols="5"
 													align-self="center"
-													style="text-align: center; color:white"
+													style="
+														text-align: center;
+														color: white;
+													"
 												>
-													<span class="form-label" style="color:white"
+													<span
+														class="form-label"
+														style="color: white"
 														>Check In & Check
 														Out</span
 													>
@@ -68,6 +84,7 @@
 													cols="3"
 													align-self="center"
 												>
+													<rzrPay></rzrPay>
 													<button
 														class="submit-btn"
 														v-b-modal.chkAvailable
@@ -89,18 +106,28 @@
 			<div class="container section" style="height: auto !important">
 				<b-row class="sectionRow">
 					<b-col>
-						<h3>Malhar Greens, Kolkata</h3><hr>
+						<h3>Malhar Greens, Kolkata</h3>
+						<hr />
 						<p>
-							Malhar Green is an ideal location to celebrate your special functions and joyous gatherings.<br>
- Nestled amidst the lush green orchard of Teak, Coconut, Lichie, Cardamom and Sal trees, it provides the much-needed cucoon of nature, very close to the city but far from its hustle-bustle. Just a 10 min drive from Shaheed Khudiram/ Kavi Nazrul Metro station, you can reach this property at ease through public and private conveyance. It houses a floating stage where you can host parties and events. And the best part! It is available for all-night bookings too.
-							<br>The venue is also perfect for pre-wedding and other photography backdrops. 
-							<br><br>
+							Malhar Green is an ideal location to celebrate your
+							special functions and joyous gatherings.<br />
+							Nestled amidst the lush green orchard of Teak,
+							Coconut, Lichie, Cardamom and Sal trees, it provides
+							the much-needed cucoon of nature, very close to the
+							city but far from its hustle-bustle. Just a 10 min
+							drive from Shaheed Khudiram/ Kavi Nazrul Metro
+							station, you can reach this property at ease through
+							public and private conveyance. It houses a floating
+							stage where you can host parties and events. And the
+							best part! It is available for all-night bookings
+							too.
+							<br />The venue is also perfect for pre-wedding and
+							other photography backdrops. <br /><br />
 							<button class="btn">
-								<i class="fa fa-map-marker mr-2"></i>Ramchandrapur (N),
-S. N. Ghosh Avenue
-Beside Ekta Sangha club (opposite road of S.N. Medical),
-P.O. Narendrapur,
-Kolkata 700103</button
+								<i class="fa fa-map-marker mr-2"></i
+								>Ramchandrapur (N), S. N. Ghosh Avenue Beside
+								Ekta Sangha club (opposite road of S.N.
+								Medical), P.O. Narendrapur, Kolkata 700103</button
 							><br />
 							<button class="btn">
 								<i class="fa fa-envelope mr-2"></i
@@ -108,27 +135,33 @@ Kolkata 700103</button
 							><br />
 							<button class="btn">
 								<i class="fa fa-phone mr-2"></i>
-								+91-9051914005</button
-							>
-							
+								+91-9051914005
+							</button>
 						</p>
-						<p style="font-size:20px ; font-weight: bold;color: #004085;">Hotel Highlights<br>
-						<hr>
+						<p
+							style="
+								font-size: 20px;
+								font-weight: bold;
+								color: #004085;
+							"
+						>
+							Hotel Highlights<br />
+						</p>
+						<hr />
 						<small>
-						House of 1800 sqft[central hall of 500 sqft]<br>
-4 large rooms for accomodation<br>
- 17000+ sqft garden<br>
-More than 350 sqft Pool<br>
-Floating stage of more than 100 sqft area<br>
-Garden with more than 100 trees/ plants<br>
-Outdoor and indoor washroom facilities<br>
-5 min walk from EM Bypass <br>
-30 mins from Jadavpur 8B bas stand/ 45 mins from Gariahat
-
+							House of 1800 sqft[central hall of 500 sqft]<br />
+							4 large rooms for accomodation<br />
+							17000+ sqft garden<br />
+							More than 350 sqft Pool<br />
+							Floating stage of more than 100 sqft area<br />
+							Garden with more than 100 trees/ plants<br />
+							Outdoor and indoor washroom facilities<br />
+							5 min walk from EM Bypass <br />
+							30 mins from Jadavpur 8B bas stand/ 45 mins from
+							Gariahat
 						</small>
 
-
-							<!-- <button class="btn">
+						<!-- <button class="btn">
 								<i class="fa fa-home mr-2"></i>
 								<small>House of 1800 sqft [central hall of 500 sqft]</small></button
 							>
@@ -144,23 +177,29 @@ Outdoor and indoor washroom facilities<br>
 								<i class="fa fa-camera mr-2"></i>
 								<small>Amazing location for shoots</small></button
 							><br /> -->
-							
-						
-						
-						<p>
-						<p style="font-size:20px ; font-weight: bold;color: #004085;">Hotel Policies</p>
-						<hr>
-						<small>Check-in from 11:00 PM<br>
-						Check-out till 12:00 PM<br>
-						Early Check in and late check-out on request at additional charge<br>
-						We accept VISA, Mastercard, Rupay, AMEX, Razorpay, Bank Transfer (RTGS, NEFT, IMPS)<br>
-						Kids’ stay is free, up to the age of 12 years<br>
-						Group discounts are available<br>
-						Pets are allowed.<br>
-						</small>
-						
-						
 
+						<p></p>
+						<p
+							style="
+								font-size: 20px;
+								font-weight: bold;
+								color: #004085;
+							"
+						>
+							Hotel Policies
+						</p>
+						<hr />
+						<small
+							>Check-in from 11:00 PM<br />
+							Check-out till 12:00 PM<br />
+							Early Check in and late check-out on request at
+							additional charge<br />
+							We accept VISA, Mastercard, Rupay, AMEX, Razorpay,
+							Bank Transfer (RTGS, NEFT, IMPS)<br />
+							Kids’ stay is free, up to the age of 12 years<br />
+							Group discounts are available<br />
+							Pets are allowed.<br />
+						</small>
 					</b-col>
 					<b-col>
 						<b-row>
@@ -202,58 +241,82 @@ Outdoor and indoor washroom facilities<br>
 					</b-col> -->
 					<b-col>
 						<h3>Venue</h3>
-						<hr style="width:8%;height:3px;border-width:0;color:gray;background-color:gray">
+						<hr
+							style="
+								width: 8%;
+								height: 3px;
+								border-width: 0;
+								color: gray;
+								background-color: gray;
+							"
+						/>
 						<div class="container">
-    <div class="row">
-        <div class="col-md-5 col-sm-6">
-            <div class="pricingTable">
-                <div class="pricing_heading">
-                    <h3 class="title">Lawn</h3>
-                    <span class="value">
-                        Rs. 35000/-
-                        <span class="month">per booking</span>
-                    </span>
-                </div>
-                <div class="content">
-                    <ul>
-                        <li>100 sqft. Floating Stage</li>
-                        <li>350+ sqft. Pool</li>
-                        <li>17000+ sqft. garden</li>
-                        <li>Garden with more than 100 trees/plants</li>
-                        <li>Lorem ipsum</li>
-                    </ul>
-                    <div class="link">
-                        <a href="#">Book Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+							<div class="row">
+								<div class="col-md-5 col-sm-6">
+									<div class="pricingTable">
+										<div class="pricing_heading">
+											<h3 class="title">Lawn</h3>
+											<span class="value">
+												Rs. 35000/-
+												<span class="month"
+													>per booking</span
+												>
+											</span>
+										</div>
+										<div class="content">
+											<ul>
+												<li>
+													100 sqft. Floating Stage
+												</li>
+												<li>350+ sqft. Pool</li>
+												<li>17000+ sqft. garden</li>
+												<li>
+													Garden with more than 100
+													trees/plants
+												</li>
+												<li>Lorem ipsum</li>
+											</ul>
+											<div class="link">
+												<a href="#">Book Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
 
-        <div class="col-md-5 col-sm-6">
-            <div class="pricingTable">
-                <div class="pricing_heading">
-                    <h3 class="title">House along with Lawn</h3>
-                    <span class="value">
-                        Rs. 100000/-
-                        <span class="month">per booking</span>
-                    </span>
-                </div>
-                <div class="content">
-                    <ul>
-                        <li>1800 sqft. House </li>
-                        <li>500 sqft. Central hall</li>
-                        <li>4 large rooms for accomodation</li>
-                        <li>Outdoor and indoor washroom</li>
-                        <li>Lorem ipsum</li>
-                    </ul>
-                    <div class="link">
-                        <a href="#">Book Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+								<div class="col-md-5 col-sm-6">
+									<div class="pricingTable">
+										<div class="pricing_heading">
+											<h3 class="title">
+												House along with Lawn
+											</h3>
+											<span class="value">
+												Rs. 100000/-
+												<span class="month"
+													>per booking</span
+												>
+											</span>
+										</div>
+										<div class="content">
+											<ul>
+												<li>1800 sqft. House</li>
+												<li>500 sqft. Central hall</li>
+												<li>
+													4 large rooms for
+													accomodation
+												</li>
+												<li>
+													Outdoor and indoor washroom
+												</li>
+												<li>Lorem ipsum</li>
+											</ul>
+											<div class="link">
+												<a href="#">Book Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
 						<!-- <p>
 							GetLance Academy hosts regular, rigorous learning
@@ -267,27 +330,31 @@ Outdoor and indoor washroom facilities<br>
 					</b-col>
 				</b-row>
 				<div class="row">
-					
 					<div class="col-md-6">
 						<h3>Location</h3>
-						<hr style="width:25%;height:3px;border-width:0;color:gray;background-color:gray">
+						<hr
+							style="
+								width: 25%;
+								height: 3px;
+								border-width: 0;
+								color: gray;
+								background-color: gray;
+							"
+						/>
 						<p>
-							Malhar Greens<br>
-Ramchandrapur (N)<br>
-S. N. Ghosh Avenue<br>
-Beside Ekta Sangha club (opposite road of S.N. Medical)<br>
-P.O. Narendrapur<br>
-Kolkata 700103
+							Malhar Greens<br />
+							Ramchandrapur (N)<br />
+							S. N. Ghosh Avenue<br />
+							Beside Ekta Sangha club (opposite road of S.N.
+							Medical)<br />
+							P.O. Narendrapur<br />
+							Kolkata 700103
 						</p>
 					</div>
 					<div class="col-md-6">
-						<img
-							src=""
-							alt=""
-						/>
+						<img src="" alt="" />
 					</div>
 				</div>
-				
 			</div>
 		</div>
 		<b-modal id="chkAvailable" centered size="xl" title="">
@@ -518,10 +585,11 @@ Kolkata 700103
 
 <script>
 import { mapState } from "vuex";
+import rzrPay from "../payments/googlePay.vue";
 
 import footerComp from "../ExtraComponents/footer.vue";
 export default {
-	components: { footerComp },
+	components: { footerComp, rzrPay },
 	filters: {
 		date(value) {
 			if (!value) return "";

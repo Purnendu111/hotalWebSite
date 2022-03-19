@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 
 const jwt = require('jsonwebtoken');
+const Razorpay = require('razorpay');
+const shortid = require('shortid');
+const razorpay = new Razorpay({
+  key_id: 'rzp_test_djUfuR1MKNSysq',
+  key_secret: 'Bqbjb7DrYovNBm7Ej8voX0Sj',
+});
 
 const { mongodbService } = require('../common/MongodbService');
 
@@ -317,4 +323,18 @@ exports.findByAPI_Name = (req, res, next) => {
       console.log('connection failed...');
     }
   );
+};
+
+exports.generateOrder = async (req, res, next) => {
+  const order = await razorpay.orders.create({
+    amount: req.body.amount,
+    currency: req.body.currency,
+    receipt: `Receipt : ${shortid.generate()}`,
+  });
+  return res.status(200).JSON({
+    id: order.id,
+    amount: order.amount,
+    currency: order.currency,
+    receipt: order.receipt,
+  });
 };

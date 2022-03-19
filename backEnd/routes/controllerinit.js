@@ -7,6 +7,7 @@ const {
   updateApiStatus,
   getAPIExceptionList,
   findByAPI_Name,
+  generateOrder,
 } = require('../services/apiinitservice');
 
 //@desc get questions to find out API or not
@@ -39,4 +40,8 @@ exports.getAPIExceptionList = (req, res, next) => {
 
 exports.findByAPI_Name = (req, res, next) => {
   findByAPI_Name(req, res, next);
+};
+
+exports.generateOrder = (req, res, next) => {
+  generateOrder(req, res, next);
 };
