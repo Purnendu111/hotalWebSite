@@ -1,5 +1,9 @@
 <template>
 	<div >
+		<div id="pageHead">
+			<h2 class="text-center">Reach out to Our Territory<br />________________</h2>
+			
+		</div>
 		<div style="padding: 50px">
 		<b-row
 			style="
