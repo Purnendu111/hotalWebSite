@@ -110,7 +110,7 @@
 					<b-col>₹  5100</b-col>
 				</b-row>
 				<b-row>
-					<b-col>Starting Rate/Night</b-col>
+					<b-col class="padding10">Starting Rate/Night</b-col>
 				</b-row>
 				<b-row>
 					<b-col>
@@ -251,7 +251,7 @@
 					<b-col>₹ 4700</b-col>
 				</b-row>
 				<b-row>
-					<b-col>Starting Rate/Night</b-col>
+					<b-col class="padding10">Starting Rate/Night</b-col>
 				</b-row>
 				<b-row>
 					<b-col>
@@ -391,7 +391,7 @@
 					<b-col>₹  5100</b-col>
 				</b-row>
 				<b-row>
-					<b-col>Starting Rate/Night</b-col>
+					<b-col class="padding10">Starting Rate/Night</b-col>
 				</b-row>
 				<b-row>
 					<b-col>
@@ -531,7 +531,7 @@
 					<b-col>₹  5100</b-col>
 				</b-row>
 				<b-row>
-					<b-col>Starting Rate/Night</b-col>
+					<b-col class="padding10">Starting Rate/Night</b-col>
 				</b-row>
 				<b-row>
 					<b-col>
@@ -670,7 +670,7 @@
 					<b-col>₹  5100</b-col>
 				</b-row>
 				<b-row>
-					<b-col>Starting Rate/Night</b-col>
+					<b-col class="padding10">Starting Rate/Night </b-col>
 				</b-row>
 				<b-row>
 					<b-col>
@@ -691,11 +691,11 @@
 						
 						<b-button
 							variant="outline-primary"
-							id="room_3_cncl"
+							id="room_5_cncl"
 							style="display: None"
 							@click="
 								cancleRoom(
-									'room_3'
+									'room_5'
 								)
 							"
 						>

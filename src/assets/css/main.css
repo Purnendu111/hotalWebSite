@@ -651,3 +651,7 @@ select.form-control option {
   top: -170px;
   background: rgba(0, 0, 0, 0.4) !important;
 }
+
+.padding10{
+  padding: 10px !important
+}
