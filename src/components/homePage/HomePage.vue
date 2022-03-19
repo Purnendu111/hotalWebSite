@@ -324,7 +324,7 @@
 					</b-col>
 				</b-row>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-4">
 						<h3>Location</h3>
 						<hr
 							style="
@@ -335,7 +335,7 @@
 								background-color: gray;
 							"
 						/>
-						<p>
+						<!-- <p>
 							Malhar Greens<br />
 							Ramchandrapur (N)<br />
 							S. N. Ghosh Avenue<br />
@@ -343,11 +343,40 @@
 							Medical)<br />
 							P.O. Narendrapur<br />
 							Kolkata 700103
-						</p>
+						</p> -->
+					
+					<div class="col-md-8">
+						<gmap-map
+                        :zoom="15"
+                        :center="center"
+                        style="width: 535%; height: 10%; padding-bottom: 400px"
+                    >
+                        <gmap-marker
+                            :key="index"
+                            v-for="(gmp, index) in markers"
+                            :position="{
+                                lat: parseFloat(gmp.lat),
+                                lng: parseFloat(gmp.lng),
+                            }"
+                            @click="openInfoWindowTemplate(index)"
+                        ></gmap-marker>
+                        <gmap-info-window
+                            :options="{
+                                maxWidth: 100,
+                                pixelOffset: {
+                                    width: 0,
+                                    height: -35,
+                                },
+                            }"
+                            :position="infoWindow.position"
+                            :opened="infoWindow.open"
+                            @closeclick="infoWindow.open = false"
+                        >
+                            <div v-html="infoWindow.template"></div>
+                        </gmap-info-window>
+                    </gmap-map>
 					</div>
-					<div class="col-md-6">
-						<img src="" alt="" />
-					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -592,6 +621,7 @@ export default {
 		},
 	},
 	data() {
+
 		// const now = new Date();
 		// const today = new Date(
 		// 	now.getFullYear(),
@@ -599,6 +629,16 @@ export default {
 		// 	now.getDate()
 		// );
 		return {
+			center: { lat: 22.5664528, lng: 88.3215014 },
+            currentPlace: "",
+            infoWindow: {
+                position: { lat: 0, lng: 0 },
+                open: false,
+                template: "",
+            },
+            mapHt: "",
+            markers: [],
+            places: [],
 			tabCounter: 0,
 			showCorporateInputType: false,
 			showCorporateText: "Add Corporate Info",
@@ -629,6 +669,7 @@ export default {
 		this.tabs.push(this.tabCounter++);
 	},
 	mounted() {
+
 		var startDate = this.minTo;
 		var dd1 = parseInt(String(startDate.getDate()).padStart(2, "0")) + 1;
 		var mm1 = String(startDate.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -638,6 +679,29 @@ export default {
 		this.toDate = yyyy1 + "-" + mm1 + "-" + dd1;
 	},
 	methods: {
+		setPlace(place) {
+            //console.log(JSON.stringify(place));
+            this.currentPlace = place;
+        },
+        geolocate: function () {
+            navigator.geolocation.getCurrentPosition((position) => {
+                this.center = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                /*console.log(
+                    position.coords.latitude + "===" + position.coords.longitude
+                );*/
+            });
+        },
+		openInfoWindowTemplate(index) {
+            this.infoWindow.position = {
+                lat: this.markers[index].lat,
+                lng: this.markers[index].lng,
+            };
+            this.infoWindow.template = `<b>${this.markers[index].label}</b>`;
+            this.infoWindow.open = true;
+        },
 		dateRangeCal() {
 			let steps = 1;
 			this.dateArray = [];
