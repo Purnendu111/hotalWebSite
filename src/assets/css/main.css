@@ -652,6 +652,10 @@ select.form-control option {
   background: rgba(0, 0, 0, 0.4) !important;
 }
 
-.padding10{
-  padding: 10px !important
+.padding10 {
+  padding: 10px !important;
+}
+
+.displayNone {
+  display: none !important;
 }

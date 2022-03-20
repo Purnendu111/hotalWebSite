@@ -10,30 +10,42 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     dateRange: {
-      startDate: new Date(),
-      endDate: new Date(),
+      startDate:
+        new Date().getFullYear() +
+        '/' +
+        parseInt(new Date().getMonth() + 1)
+          .toString()
+          .padStart(2, '0') +
+        '/' +
+        new Date().getDate().toString().padStart(2, '0'),
+      endDate:
+        new Date().getFullYear() +
+        '/' +
+        parseInt(new Date().getMonth() + 1)
+          .toString()
+          .padStart(2, '0') +
+        '/' +
+        new Date().getDate().toString().padStart(2, '0'),
     },
-    totalPriceForRooms:0,
+    totalPriceForRooms: 0,
     roomTypeList: [],
     roomList: [],
   },
   actions: {
-    dateChange(context, obj){
+    dateChange(context, obj) {
       context.commit('dateUpdate', obj);
     },
-    cnclRoom(context, id){
+    cnclRoom(context, id) {
       context.commit('cnclRoom', id);
     },
     addToRoomList(context, obj) {
       console.log(obj);
       let item = '';
       if (context.state.roomList.length > 1) {
-        item = context.state.roomList.find(
-          (item) =>{ 
-            console.log(item.id+"======"+obj.id);
-            item.id === obj.id
-          }
-        );
+        item = context.state.roomList.find((item) => {
+          console.log(item.id + '======' + obj.id);
+          item.id === obj.id;
+        });
       }
       console.log(item);
       if (item == '' || item == undefined || item == null) {
@@ -43,35 +55,42 @@ export default new Vuex.Store({
   },
   mutations: {
     addRooms(state, payload) {
-      state.roomList.push(payload);
-      state.roomTypeList.push(payload.roomType);
+      if (payload.id == 'house_along_with_lawn') {
+        state.roomList = [];
+        state.roomTypeList = [];
+        state.roomList.push(payload);
+        state.roomTypeList.push(payload.roomType);
+      } else {
+        state.roomList.push(payload);
+        state.roomTypeList.push(payload.roomType);
+      }
       let total = 0;
-      state.roomList.forEach(element => {
+      state.roomList.forEach((element) => {
         console.log(element.price);
-        total += parseFloat(element.price)
+        total += parseFloat(element.price);
       });
-      state.totalPriceForRooms = total
+      state.totalPriceForRooms = total;
     },
-    dateUpdate(state, payload){
-      state.dateRange.startDate = payload.startDate
-      state.dateRange.endDate = payload.endDate
+    dateUpdate(state, payload) {
+      state.dateRange.startDate = payload.startDate;
+      state.dateRange.endDate = payload.endDate;
     },
     cnclRoom(state, id) {
-			//console.log(obj.cartQuantity);
-				let arr = state.roomList
-			var i = arr.length;
-			while (i--) {
-				if (arr[i] && arr[i].id === id) {
-					arr.splice(i, 1);
-				}
-			}
+      //console.log(obj.cartQuantity);
+      let arr = state.roomList;
+      var i = arr.length;
+      while (i--) {
+        if (arr[i] && arr[i].id === id) {
+          arr.splice(i, 1);
+        }
+      }
       let total = 0;
-      state.roomList.forEach(element => {
+      state.roomList.forEach((element) => {
         console.log(element.price);
-        total += parseFloat(element.price)
+        total += parseFloat(element.price);
       });
-      state.totalPriceForRooms = total
-		},
+      state.totalPriceForRooms = total;
+    },
   },
   plugins: [
     createPersistedState({

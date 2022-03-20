@@ -265,8 +265,40 @@
 												</li>
 												<li>Lorem ipsum</li>
 											</ul>
-											<div class="link">
-												<a href="#">Book Now</a>
+											<div
+												class="link roomSelectButtom"
+												id="lawn"
+												@click="
+													addRooms(
+														'lawn',
+														'LAWN',
+														'LAWN',
+														'35000'
+													)
+												"
+											>
+												<a href="javascript:void(0)"
+													>Book Now</a
+												>
+											</div>
+											<div
+												class="
+													link
+													roomSelectButtom
+													displayNone
+												"
+												id="lawn_cancle"
+												@click="cancleRoom('lawn')"
+											>
+												<a href="javascript:void(0)"
+													>Cancle Now</a
+												>
+											</div>
+											<div
+												class="link showTxt displayNone"
+												id="showTxtOnly"
+											>
+												This option is already selected
 											</div>
 										</div>
 									</div>
@@ -298,8 +330,38 @@
 												</li>
 												<li>Lorem ipsum</li>
 											</ul>
-											<div class="link">
-												<a href="#">Book Now</a>
+											<div
+												class="link roomSelectButtom"
+												id="house_along_with_lawn"
+												@click="
+													addRooms(
+														'house_along_with_lawn',
+														'House_along_with_Lawn',
+														'House along with Lawn',
+														'100000'
+													)
+												"
+											>
+												<a href="javascript:void(0)"
+													>Book Now</a
+												>
+											</div>
+											<div
+												class="
+													link
+													house_along_with_lawn_cancle
+													displayNone
+												"
+												id="house_along_with_lawn_cancle"
+												@click="
+													cancleRoom(
+														'house_along_with_lawn'
+													)
+												"
+											>
+												<a href="javascript:void(0)"
+													>Cancle Room</a
+												>
 											</div>
 										</div>
 									</div>
@@ -662,6 +724,7 @@ export default {
 	computed: {
 		...mapState({
 			// dateRange: "dateRange",
+			roomList: "roomList",
 		}),
 	},
 	beforeMount() {
@@ -675,6 +738,28 @@ export default {
 		this.minTo = yyyy1 + "-" + mm1 + "-" + dd1;
 		this.fromDate = yyyy1 + "-" + mm1 + "-" + (parseInt(dd1) - 1);
 		this.toDate = yyyy1 + "-" + mm1 + "-" + dd1;
+		if (this.roomList.length > 0) {
+			if (this.roomList[0].id == "house_along_with_lawn") {
+				for (let el of document.querySelectorAll(".roomSelectButtom"))
+					el.classList.add("displayNone");
+				alert((this.roomList[0].id + "_cancle").length);
+				document
+					.getElementById(this.roomList[0].id + "_cancle")
+					.classList.remove("displayNone");
+			}
+			this.roomList.forEach((element) => {
+				document.getElementById(element.id) !== null
+					? document
+							.getElementById(element.id)
+							.classList.add("displayNone")
+					: "";
+				document.getElementById(element.id + "_cancle") !== null
+					? document
+							.getElementById(element.id + "_cancle")
+							.classList.remove("displayNone")
+					: "";
+			});
+		}
 	},
 	methods: {
 		setPlace(place) {
@@ -802,6 +887,60 @@ export default {
 			} else {
 				this.showCorporateInputType = true;
 				this.showCorporateText = "Corporate Info:";
+			}
+		},
+		addRooms(id, roomType, roomName, price) {
+			let obj = {
+				id: id,
+				roomType: roomType,
+				roomName: roomName,
+				price: price,
+			};
+			// console.log(obj);
+			this.$store.dispatch("addToRoomList", obj);
+			console.log(this.roomList);
+			if (id == "house_along_with_lawn") {
+				for (let el of document.querySelectorAll(".roomSelectButtom"))
+					el.classList.add("displayNone");
+				document
+					.getElementById(id + "_cancle")
+					.classList.remove("displayNone");
+				document
+					.getElementById("showTxtOnly")
+					.classList.remove("displayNone");
+			} else {
+				document.getElementById(id).classList.add("displayNone");
+				document
+					.getElementById(id + "_cancle")
+					.classList.remove("displayNone");
+			}
+		},
+		cancleRoom(id) {
+			// alert(id)
+			this.$store.dispatch("cnclRoom", id);
+			if (id == "house_along_with_lawn") {
+				for (let el of document.querySelectorAll(".displayNone"))
+					el.classList.remove("displayNone");
+				document
+					.getElementById("house_along_with_lawn_cancle")
+					.classList.add("displayNone");
+				document
+					.getElementById("lawn_cancle")
+					.classList.add("displayNone");
+				document
+					.getElementById("showTxtOnly")
+					.classList.add("displayNone");
+			} else {
+				document.getElementById(id + "_cancle") !== null
+					? document
+							.getElementById(id + "_cancle")
+							.classList.add("displayNone")
+					: "";
+				document.getElementById(id) !== null
+					? document
+							.getElementById(id)
+							.classList.remove("displayNone")
+					: "";
 			}
 		},
 	},

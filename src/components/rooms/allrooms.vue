@@ -129,6 +129,7 @@
 							<b-col>
 								<b-button
 									variant="outline-primary"
+									class="roomSelectButtom"
 									id="room_1"
 									@click="
 										addRooms(
@@ -144,6 +145,7 @@
 
 								<b-button
 									variant="outline-primary"
+									class="roomSelectButtom"
 									id="room_1_cncl"
 									style="display: None"
 									@click="cancleRoom('room_1')"
@@ -285,6 +287,7 @@
 						<b-row>
 							<b-col>
 								<b-button
+									class="roomSelectButtom"
 									id="room_2"
 									variant="outline-primary"
 									@click="
@@ -301,6 +304,7 @@
 
 								<b-button
 									variant="outline-primary"
+									class="roomSelectButtom"
 									id="room_2_cncl"
 									style="display: None"
 									@click="cancleRoom('room_2')"
@@ -442,6 +446,7 @@
 							<b-col>
 								<b-button
 									variant="outline-primary"
+									class="roomSelectButtom"
 									id="room_3"
 									@click="
 										addRooms(
@@ -457,6 +462,7 @@
 
 								<b-button
 									variant="outline-primary"
+									class="roomSelectButtom"
 									id="room_3_cncl"
 									style="display: None"
 									@click="cancleRoom('room_3')"
@@ -600,6 +606,7 @@
 							<b-col>
 								<b-button
 									variant="outline-primary"
+									class="roomSelectButtom"
 									id="room_4"
 									@click="
 										addRooms(
@@ -614,6 +621,7 @@
 								</b-button>
 								<b-button
 									variant="outline-primary"
+									class="roomSelectButtom"
 									id="room_4_cncl"
 									style="display: None"
 									@click="cancleRoom('room_4')"
@@ -760,6 +768,7 @@
 								<b-button
 									variant="outline-primary"
 									id="room_5"
+									class="roomSelectButtom"
 									@click="
 										addRooms(
 											'room_5',
@@ -774,6 +783,7 @@
 
 								<b-button
 									variant="outline-primary"
+									class="roomSelectButtom"
 									id="room_5_cncl"
 									style="display: None"
 									@click="cancleRoom('room_5')"
@@ -808,7 +818,7 @@
 						style="height: 50px !important"
 						alt=""
 					/>
-					<sapn class="cstmCartCountTxt">{{ roomList.length }}</sapn>
+					<span class="cstmCartCountTxt">{{ roomList.length }}</span>
 					Pay now</b-button
 				></b-col
 			>
@@ -837,11 +847,25 @@ export default {
 	mounted() {
 		console.log(this.roomTypeList);
 		console.log(this.roomList);
-		this.roomList.forEach((element) => {
-			document.getElementById(element.id).style.display = "none";
-			document.getElementById(element.id + "_cncl").style.display =
-				"inline-table";
-		});
+		if (this.roomList.length > 0) {
+			if (this.roomList[0].id == "house_along_with_lawn") {
+				for (let el of document.querySelectorAll(".roomSelectButtom"))
+					el.classList.add("displayNone");
+			}
+			this.roomList.forEach((element) => {
+				document.getElementById(element.id) !== null
+					? (document.getElementById(element.id).style.display =
+							"none")
+					: "";
+				document.getElementById(element.id + "_cncl") !== null
+					? (document.getElementById(
+							element.id + "_cncl"
+					  ).style.display = "inline-table")
+					: "";
+			});
+		}
+
+		// roomSelectButtom
 		let self = this;
 		setTimeout(() => {
 			self.appHt();
@@ -876,8 +900,12 @@ export default {
 		cancleRoom(id) {
 			// alert(id)
 			this.$store.dispatch("cnclRoom", id);
-			document.getElementById(id + "_cncl").style.display = "none";
-			document.getElementById(id).style.display = "inline-table";
+			document.getElementById(id + "_cncl") !== null
+				? (document.getElementById(id + "_cncl").style.display = "none")
+				: "";
+			document.getElementById(id) !== null
+				? (document.getElementById(id).style.display = "inline-table")
+				: "";
 			setTimeout(() => {
 				this.appHt();
 			}, 500);
